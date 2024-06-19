@@ -1,8 +1,8 @@
+"use client";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -18,7 +18,21 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import data from "@/data/data.json";
+import { useState } from "react";
 export default function page() {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredData = data.filter((item) => {
+    const matchesCategory =
+      selectedCategory === "all" ? true : item.tag.includes(selectedCategory);
+    const matchesSearchTerm = item.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearchTerm;
+  });
+
   return (
     <div className="container mt-8">
       <div className="flex text-center justify-between items-center">
@@ -28,105 +42,56 @@ export default function page() {
             placeholder="Ex: ovelha leva gank ... "
             id="input"
             className="w-[300px]"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        <Select>
+        <Select onValueChange={(value) => setSelectedCategory(value)}>
           <SelectTrigger className="w-[300px]">
             <SelectValue placeholder="Filtre por categoria de vídeo" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectLabel>Fruits</SelectLabel>
-              <SelectItem value="apple">Apple</SelectItem>
-              <SelectItem value="banana">Banana</SelectItem>
-              <SelectItem value="blueberry">Blueberry</SelectItem>
-              <SelectItem value="grapes">Grapes</SelectItem>
-              <SelectItem value="pineapple">Pineapple</SelectItem>
+              <SelectLabel>Categorias</SelectLabel>
+              <SelectItem value="all">Todos</SelectItem>
+              <SelectItem value="nojeira">Nojeira</SelectItem>
+              <SelectItem value="tempero">Tempero</SelectItem>
+              <SelectItem value="modoM">ModoM</SelectItem>
+              <SelectItem value="historias">Histórias</SelectItem>
+              <SelectItem value="fetiches">Fetiches</SelectItem>
+              <SelectItem value="rastarado">Rastarado</SelectItem>
+              <SelectItem value="rastabi">Rasta bi</SelectItem>
+              <SelectItem value="esculacho">Esculacho</SelectItem>
+              <SelectItem value="gank">Gank</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
       </div>
-      <div className="grid grid-cols-3 gap-4 mt-8">
-        <Card>
-          <CardHeader>
-            <CardTitle>História Bizarra</CardTitle>
-            <CardDescription>
-              Ovelha conta história do pau melado de cocô
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <iframe
-              src="https://www.youtube.com/embed/-3s_I49PidY"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              className="w-full h-[300px]"
-            ></iframe>
-          </CardContent>
-          <CardFooter className="flex gap-4">
-            <Badge variant="default">Nojeira</Badge>
-            <Badge variant="default">Paulada</Badge>
-          </CardFooter>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>História Bizarra</CardTitle>
-            <CardDescription>
-              Ovelha conta história do pau melado de cocô
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <iframe
-              src="https://www.youtube.com/embed/-3s_I49PidY"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              className="w-full h-[300px]"
-            ></iframe>
-          </CardContent>
-          <CardFooter className="flex gap-4">
-            <Badge variant="default">Nojeira</Badge>
-            <Badge variant="default">Paulada</Badge>
-          </CardFooter>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>História Bizarra</CardTitle>
-            <CardDescription>
-              Ovelha conta história do pau melado de cocô
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <iframe
-              src="https://www.youtube.com/embed/-3s_I49PidY"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              className="w-full h-[300px]"
-            ></iframe>
-          </CardContent>
-          <CardFooter className="flex gap-4">
-            <Badge variant="default">Nojeira</Badge>
-            <Badge variant="default">Paulada</Badge>
-          </CardFooter>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>História Bizarra</CardTitle>
-            <CardDescription>
-              Ovelha conta história do pau melado de cocô
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <iframe
-              src="https://www.youtube.com/embed/-3s_I49PidY"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              className="w-full h-[300px]"
-            ></iframe>
-          </CardContent>
-          <CardFooter className="flex gap-4">
-            <Badge variant="default">Nojeira</Badge>
-            <Badge variant="default">Paulada</Badge>
-          </CardFooter>
-        </Card>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-8">
+        {filteredData.map((item) => {
+          const videoId = new URL(item.url).searchParams.get("v");
+          const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+          return (
+            <Card key={item.id} className="flex flex-col">
+              <CardHeader>
+                <CardTitle>{item.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1 items-end flex ">
+                <iframe
+                  src={embedUrl}
+                  title={item.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  className="w-full h-[300px]"
+                ></iframe>
+              </CardContent>
+              <CardFooter className="flex gap-4">
+                {item.tag.map((tag) => (
+                  <Badge key={tag}>{tag}</Badge>
+                ))}
+              </CardFooter>
+            </Card>
+          );
+        })}
       </div>
     </div>
   );
