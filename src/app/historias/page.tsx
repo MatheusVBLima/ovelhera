@@ -46,7 +46,7 @@ export default function page() {
           </SelectContent>
         </Select>
       </div>
-      <div className=" grid grid-cols-3 gap-4 mt-8">
+      <div className="grid grid-cols-3 gap-4 mt-8">
         <Card>
           <CardHeader>
             <CardTitle>História Bizarra</CardTitle>
@@ -67,7 +67,7 @@ export default function page() {
             <Badge variant="default">Paulada</Badge>
           </CardFooter>
         </Card>
-        <Card className="">
+        <Card>
           <CardHeader>
             <CardTitle>História Bizarra</CardTitle>
             <CardDescription>
@@ -87,7 +87,7 @@ export default function page() {
             <Badge variant="default">Paulada</Badge>
           </CardFooter>
         </Card>
-        <Card className="">
+        <Card>
           <CardHeader>
             <CardTitle>História Bizarra</CardTitle>
             <CardDescription>
@@ -107,7 +107,7 @@ export default function page() {
             <Badge variant="default">Paulada</Badge>
           </CardFooter>
         </Card>
-        <Card className="">
+        <Card>
           <CardHeader>
             <CardTitle>História Bizarra</CardTitle>
             <CardDescription>

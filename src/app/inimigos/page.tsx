@@ -42,7 +42,7 @@ export default function page() {
       <h1 className="text-2xl font-bold font-mono text-center">
         EU VOU ME VINGAR DE TODOS QUE RIRAM DE MIM
       </h1>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center ">
         <Table className="w-[700px]">
           <TableCaption>Acompanhamento das vinganças</TableCaption>
           <TableHeader>
