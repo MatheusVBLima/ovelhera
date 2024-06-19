@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/select";
 import data from "@/data/data.json";
 import { useState } from "react";
-export default function page() {
+export default function Historias() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
 
