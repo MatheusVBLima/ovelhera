@@ -35,13 +35,13 @@ export default function Historias() {
 
   return (
     <div className="container mt-8">
-      <div className="flex text-center justify-between items-center">
+      <div className="flex flex-col items-end gap-4 md:flex-row text-center justify-between md:items-center">
         <div className="flex text-center items-center gap-2">
           <Label htmlFor="input">Pesquise uma história pelo nome</Label>
           <Input
             placeholder="Ex: ovelha leva gank ... "
             id="input"
-            className="w-[300px]"
+            className="w-[200px] md:w-[300px]"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />

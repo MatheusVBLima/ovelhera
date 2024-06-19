@@ -4,6 +4,8 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 import Link from "next/link";
 import Image from "next/image";
 import { Separator } from "./ui/separator";
+import WebNav from "./WebNav";
+import MobileNav from "./MobileNav";
 
 export function Header() {
   return (
@@ -20,21 +22,8 @@ export function Header() {
             />
           </Link>
         </span>
-        <nav className="flex items-center gap-4">
-          <Button
-            className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 hover:animate-bounce"
-            asChild
-          >
-            <Link href={"/historias"}>Histórias</Link>
-          </Button>
-          <Button
-            className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500   hover:animate-bounce"
-            asChild
-          >
-            <Link href={"/inimigos"}>Inimigos</Link>
-          </Button>
-          <ThemeSwitcher />
-        </nav>
+        <WebNav />
+        <MobileNav />
       </header>
       <Separator className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 " />
     </div>
