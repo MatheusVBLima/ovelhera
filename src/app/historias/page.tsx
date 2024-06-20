@@ -63,6 +63,8 @@ export default function Historias() {
               <SelectItem value="rastabi">Rasta bi</SelectItem>
               <SelectItem value="esculacho">Esculacho</SelectItem>
               <SelectItem value="gank">Gank</SelectItem>
+              <SelectItem value="motivacional">Motivacional</SelectItem>
+              <SelectItem value="opinioes">Opiniões</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>

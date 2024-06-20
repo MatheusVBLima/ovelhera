@@ -43,7 +43,7 @@ export default function page() {
         EU VOU ME VINGAR DE TODOS QUE RIRAM DE MIM
       </h1>
       <div className="flex flex-col items-center justify-center ">
-        <Table className="w-[700px]">
+        <Table className="w-[400px] xl:w-[700px]">
           <TableCaption>Acompanhamento das vinganças</TableCaption>
           <TableHeader>
             <TableRow>
@@ -51,7 +51,7 @@ export default function page() {
               <TableHead className="text-center">Status</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody className="">
+          <TableBody>
             {pessoas_ruins.map((pessoa) => (
               <TableRow key={pessoa.nome}>
                 <TableCell className="text-center w-1/2">
