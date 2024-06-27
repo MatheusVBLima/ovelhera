@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="mt-10  text-center">
+    <div className="mt-10 text-center">
       <h1 className="text-2xl">
         Acompanhe aqui a saga do ovelhera, nosso querido rastafari mineiro
       </h1>

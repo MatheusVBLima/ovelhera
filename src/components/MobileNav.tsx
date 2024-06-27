@@ -17,7 +17,7 @@ export default function MobileNav() {
     <nav className="xl:hidden">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 ">
+          <Button className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500">
             <Menu />
           </Button>
         </DropdownMenuTrigger>
@@ -26,7 +26,7 @@ export default function MobileNav() {
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <Button
-              className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 "
+              className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500"
               asChild
             >
               <Link href={"/historias"}>Histórias</Link>
@@ -34,7 +34,7 @@ export default function MobileNav() {
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Button
-              className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500   "
+              className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500"
               asChild
             >
               <Link href={"/inimigos"}>Inimigos</Link>

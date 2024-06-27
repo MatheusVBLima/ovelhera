@@ -1,6 +1,4 @@
 import React from "react";
-import { Button } from "./ui/button";
-import { ThemeSwitcher } from "./ThemeSwitcher";
 import Link from "next/link";
 import Image from "next/image";
 import { Separator } from "./ui/separator";
@@ -9,8 +7,8 @@ import MobileNav from "./MobileNav";
 
 export function Header() {
   return (
-    <div className="sticky top-0 bg-background z-100">
-      <header className="container py-6 flex items-center justify-between">
+    <div className="z-100 sticky top-0 bg-background">
+      <header className="container flex items-center justify-between py-6">
         <span>
           <Link href={"/"}>
             <Image
@@ -18,14 +16,14 @@ export function Header() {
               alt="Logo"
               width={100}
               height={100}
-              className="rounded-full "
+              className="rounded-full"
             />
           </Link>
         </span>
         <WebNav />
         <MobileNav />
       </header>
-      <Separator className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 " />
+      <Separator className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500" />
     </div>
   );
 }

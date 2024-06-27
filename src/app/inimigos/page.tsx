@@ -34,15 +34,16 @@ const pessoas_ruins = [
   { nome: "JUNIN", status: "pending" },
   { nome: "SON3KINHA", status: "pending" },
   { nome: "XY", status: "pending" },
+  { nome: "Websexo", status: "pending" },
 ];
 
 export default function page() {
   return (
-    <div className="container space-y-12 mt-10">
-      <h1 className="text-2xl font-bold font-mono text-center">
+    <div className="container mt-10 space-y-12">
+      <h1 className="text-center font-mono text-2xl font-bold">
         EU VOU ME VINGAR DE TODOS QUE RIRAM DE MIM
       </h1>
-      <div className="flex flex-col items-center justify-center ">
+      <div className="flex flex-col items-center justify-center">
         <Table className="w-[400px] xl:w-[700px]">
           <TableCaption>Acompanhamento das vinganças</TableCaption>
           <TableHeader>
@@ -54,7 +55,7 @@ export default function page() {
           <TableBody>
             {pessoas_ruins.map((pessoa) => (
               <TableRow key={pessoa.nome}>
-                <TableCell className="text-center w-1/2">
+                <TableCell className="w-1/2 text-center">
                   {pessoa.nome}
                 </TableCell>
                 <TableCell className="flex items-center justify-center gap-2">

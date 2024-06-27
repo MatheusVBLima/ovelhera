@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/Theme-Provider";
 import { Header } from "@/components/Header";
-import { Separator } from "@/components/ui/separator";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,9 +25,8 @@ export default function RootLayout({
           defaultTheme="system"
           disableTransitionOnChange
         >
-          <div className="flex flex-col min-h-screen">
+          <div className="flex min-h-screen flex-col">
             <Header />
-
             <main>{children}</main>
           </div>
         </ThemeProvider>
