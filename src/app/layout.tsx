@@ -20,6 +20,9 @@ export default function RootLayout({
   return (
     <SessionWrapper>
       <html lang="pt-br" suppressHydrationWarning>
+        <head>
+          <link rel="icon" href="/maconha_2.png" sizes="any" />
+        </head>
         <body className={inter.className}>
           <ThemeProvider
             attribute="class"

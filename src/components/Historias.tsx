@@ -6,6 +6,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -78,6 +79,7 @@ export default function Historias() {
             <Card key={item.id} className="flex flex-col">
               <CardHeader>
                 <CardTitle>{item.title}</CardTitle>
+                <CardDescription>Vídeo de id {item.id}</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-1 items-end">
                 <iframe

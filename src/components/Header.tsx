@@ -9,17 +9,16 @@ export function Header() {
   return (
     <div className="z-100 sticky top-0 bg-background">
       <header className="container flex items-center justify-between py-6">
-        <span>
-          <Link href={"/"}>
-            <Image
-              src={"/ovelha.png"}
-              alt="Logo"
-              width={100}
-              height={100}
-              className="rounded-full"
-            />
-          </Link>
-        </span>
+        <Link href={"/"}>
+          <Image
+            src={"/logo.png"}
+            alt="Logo"
+            width={75}
+            height={75}
+            className="rounded-full"
+          />
+        </Link>
+
         <WebNav />
         <MobileNav />
       </header>

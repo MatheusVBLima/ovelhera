@@ -67,7 +67,6 @@ export default function AdminPanel() {
   async function handleOnSubmit(values: z.infer<typeof formSchema>) {
     try {
       const response = await api.post("/", values);
-      form.reset();
     } catch (error) {}
   }
 
@@ -84,11 +83,11 @@ export default function AdminPanel() {
         <>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Avatar>
+              <Avatar className="h-12 w-12">
                 <AvatarImage src={image} alt="Avatar" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
-              <p>Olá, {session.user?.name}</p>
+              <p className="text-xl">Olá, {session.user?.name}</p>
             </div>
             <div className="flex items-center gap-4">
               <Button onClick={handleAddNewVideo} variant={"outline"}>
@@ -161,8 +160,8 @@ export default function AdminPanel() {
                           />
                         </FormControl>
                         <FormDescription>
-                          Pode ser mais de 1 tag. Ela será usada para filtrar
-                          vídeos
+                          Pode ser mais de 1 tag, desde que separadas por ",".
+                          Elas serão usadas para filtrar vídeos
                         </FormDescription>
                         <FormMessage />
                       </FormItem>

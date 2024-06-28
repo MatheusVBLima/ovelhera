@@ -3,58 +3,62 @@ import React from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { ThemeSwitcher } from "./ThemeSwitcher";
-import { Speech, Skull } from "lucide-react";
+import { Speech, Skull, DoorClosed, Shield, Lock } from "lucide-react";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { useRouter } from "next/router";
 
 export default function WebNav() {
-  /*  const router = useRouter();
-
-  async function handleLogin() {
-    const result = await signIn("discord");
-    router.push("/admin");
-  } */
-
   const { data: session } = useSession();
   return (
     <nav className="hidden items-center gap-4 xl:flex">
       <Button
-        className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500"
+        className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
         asChild
+        variant={"outline"}
       >
         <Link href={"/historias"} className="flex items-center gap-2">
-          <span className="font-semibold">HISTÓRIAS</span>
-          <Speech className="animate-bounce" />
+          <span>HISTÓRIAS</span>
+          <Speech size={18} />
         </Link>
       </Button>
 
       <Button
-        className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-600"
+        className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
         asChild
+        variant={"outline"}
       >
         <Link href={"/inimigos"} className="flex items-center gap-2">
-          <span className="font-semibold">INIMIGOS</span>
-          <Skull className="animate-bounce" />
+          <span>INIMIGOS</span>
+          <Skull size={18} />
         </Link>
       </Button>
       {session ? (
         <>
-          <Button className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-600 font-semibold">
-            <Link href="admin">ADMIN</Link>
+          <Button
+            className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+            variant={"outline"}
+          >
+            <Link href="admin" className="flex items-center gap-2">
+              <span>ADMIN</span>
+              <Shield size={18} />
+            </Link>
           </Button>
           <Button
             onClick={() => signOut()}
-            className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-600 font-semibold"
+            variant={"outline"}
+            className="flex items-center gap-2 border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
           >
-            SIGN OUT
+            <span>SIGN OUT</span>
+            <DoorClosed size={18} />
           </Button>
         </>
       ) : (
         <Button
           onClick={() => signIn("discord")}
-          className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-600 font-semibold"
+          variant={"outline"}
+          className="flex items-center gap-2 border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
         >
-          LOGIN
+          <span>LOGIN</span>
+          <Lock size={18} />
         </Button>
       )}
       <ThemeSwitcher />
