@@ -4,9 +4,17 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { Speech, Skull } from "lucide-react";
-import { signIn, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function WebNav() {
+  /*  const router = useRouter();
+
+  async function handleLogin() {
+    const result = await signIn("discord");
+    router.push("/admin");
+  } */
+
   const { data: session } = useSession();
   return (
     <nav className="hidden items-center gap-4 xl:flex">
@@ -30,12 +38,23 @@ export default function WebNav() {
         </Link>
       </Button>
       {session ? (
-        <Button variant={"outline"}>
-          <Link href="admin"> Admin</Link>
-        </Button>
+        <>
+          <Button className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-600 font-semibold">
+            <Link href="admin">ADMIN</Link>
+          </Button>
+          <Button
+            onClick={() => signOut()}
+            className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-600 font-semibold"
+          >
+            SIGN OUT
+          </Button>
+        </>
       ) : (
-        <Button onClick={() => signIn("discord")} variant={"outline"}>
-          Login
+        <Button
+          onClick={() => signIn("discord")}
+          className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-600 font-semibold"
+        >
+          LOGIN
         </Button>
       )}
       <ThemeSwitcher />

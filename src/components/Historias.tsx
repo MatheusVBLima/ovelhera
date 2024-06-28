@@ -18,14 +18,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import data from "@/data/data.json";
+import data from "@/../data.json";
 import { useState } from "react";
 
 export default function Historias() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredData = data.filter((item) => {
+  const filteredData = data.videos.filter((item) => {
     const matchesCategory =
       selectedCategory === "all" ? true : item.tag.includes(selectedCategory);
     const matchesSearchTerm = item.title

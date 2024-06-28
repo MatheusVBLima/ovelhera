@@ -8,11 +8,4 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.DISCORD_CLIENT_SECRET as string,
     }),
   ],
-  pages: {
-    signIn: "/",
-    signOut: "/",
-    error: "/",
-    verifyRequest: "/",
-    newUser: "/admin",
-  },
 };

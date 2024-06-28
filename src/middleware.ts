@@ -5,14 +5,6 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get("next-auth.session-token");
   const pathname = request.nextUrl.pathname;
 
-  /* if (pathname === "/historias" && token) {
-    return NextResponse.redirect(new URL(getUrl("/admin")));
-  }
-
-  if (pathname === "/inimigos" && token) {
-    return NextResponse.redirect(new URL(getUrl("/admin")));
-  } */
-
   if (pathname === "/" && token) {
     return NextResponse.redirect(new URL(getUrl("/admin")));
   }
