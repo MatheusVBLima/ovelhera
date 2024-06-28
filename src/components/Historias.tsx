@@ -87,6 +87,7 @@ export default function Historias() {
                   title={item.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   className="h-[300px] w-full"
+                  allowFullScreen
                 ></iframe>
               </CardContent>
               <CardFooter className="flex gap-4">
