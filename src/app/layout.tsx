@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/Theme-Provider";
 import { Header } from "@/components/Header";
 import SessionWrapper from "@/components/sessionWrapper/SessionWrapper";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export default function RootLayout({
     <SessionWrapper>
       <html lang="pt-br" suppressHydrationWarning>
         <head>
-          <link rel="icon" href="/maconha_2.png" sizes="any" />
+          <link rel="icon" href="/maconha_2.png" sizes="32" />
         </head>
         <body className={inter.className}>
           <ThemeProvider
@@ -33,6 +34,7 @@ export default function RootLayout({
             <div className="flex min-h-screen flex-col">
               <Header />
               <main>{children}</main>
+              <Toaster />
             </div>
           </ThemeProvider>
         </body>
