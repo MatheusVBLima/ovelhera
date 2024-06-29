@@ -17,23 +17,14 @@ import { Input } from "@/components/ui/input";
 import { api } from "@/server/api";
 import { useToast } from "@/components/ui/use-toast";
 import { Trash } from "lucide-react";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+import { useSession } from "next-auth/react";
 
 const formSchema = z.object({
   video_id: z.string().min(1),
 });
 
 export default function FormDeleteVideo() {
+  const { data: session } = useSession();
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -43,9 +34,18 @@ export default function FormDeleteVideo() {
   });
 
   async function handleDelete(values: z.infer<typeof formSchema>) {
+    const response = await api.get(`/videos/${values.video_id}`);
+    const urlVideo = response.data.url;
+    const logData = {
+      name: session?.user?.name,
+      action: "Deletou um vídeo",
+      date: new Date().toLocaleDateString("pt-BR"),
+      url: urlVideo,
+    };
     try {
-      await api.delete(`/${values.video_id}`);
+      await api.delete(`/videos/${values.video_id}`);
       form.reset();
+      await api.post("/logs/", logData);
       toast({
         description:
           "Vídeo de id " + values.video_id + " deletado com sucesso.",

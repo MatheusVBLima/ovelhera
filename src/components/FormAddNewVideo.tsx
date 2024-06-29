@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { api } from "@/server/api";
 import { useToast } from "@/components/ui/use-toast";
 import { FileVideo } from "lucide-react";
+import { useSession } from "next-auth/react";
 
 const formSchema = z.object({
   title: z.string().min(2).max(50),
@@ -28,7 +29,9 @@ const formSchema = z.object({
 });
 
 export default function FormAddNewVideo() {
+  const { data: session } = useSession();
   const { toast } = useToast();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -39,9 +42,16 @@ export default function FormAddNewVideo() {
   });
 
   async function handleOnSubmit(values: z.infer<typeof formSchema>) {
+    const logData = {
+      name: session?.user?.name,
+      action: "Adicionou um vídeo",
+      date: new Date().toLocaleDateString("pt-BR"),
+      url: values.url,
+    };
     try {
-      await api.post("/", values);
+      await api.post("/videos/", values);
       form.reset();
+      await api.post("/logs/", logData);
       toast({
         description: "Vídeo " + values.title + " adicionado com sucesso.",
         variant: "default",

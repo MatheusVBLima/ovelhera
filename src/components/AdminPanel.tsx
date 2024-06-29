@@ -5,18 +5,32 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import FormAddNewVideo from "./FormAddNewVideo";
 import FormDeleteVideo from "./FormDeleteVideo";
+import FormLogs from "./FormLogs";
 
 export default function AdminPanel() {
   const { data: session } = useSession();
   const image = session?.user?.image || "";
   const [isAddNewVideo, setIsAddNewVideo] = useState(true);
+  const [isDeleteVideo, setIsDeleteVideo] = useState(false);
+  const [isLogs, setIsLogs] = useState(false);
 
   function handleDeleteVideo() {
     setIsAddNewVideo(false);
+
+    setIsLogs(false);
+    setIsDeleteVideo(true);
   }
 
   function handleAddNewVideo() {
+    setIsDeleteVideo(false);
+    setIsLogs(false);
     setIsAddNewVideo(true);
+  }
+
+  function handleLogs() {
+    setIsAddNewVideo(false);
+    setIsDeleteVideo(false);
+    setIsLogs(true);
   }
 
   return (
@@ -35,13 +49,17 @@ export default function AdminPanel() {
               <Button onClick={handleAddNewVideo} variant={"outline"}>
                 Novo Vídeo
               </Button>
+              <Button onClick={handleLogs} variant={"outline"}>
+                Logs
+              </Button>
               <Button onClick={handleDeleteVideo} variant={"destructive"}>
                 Deletar Vídeo
               </Button>
             </div>
           </div>
-
-          {isAddNewVideo ? <FormAddNewVideo /> : <FormDeleteVideo />}
+          {isAddNewVideo && <FormAddNewVideo />}
+          {isLogs && <FormLogs />}
+          {isDeleteVideo && <FormDeleteVideo />}
         </>
       )}
     </div>
