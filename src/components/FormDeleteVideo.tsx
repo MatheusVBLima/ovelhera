@@ -49,7 +49,7 @@ export default function FormDeleteVideo() {
       toast({
         description:
           "Vídeo de id " + values.video_id + " deletado com sucesso.",
-        variant: "default",
+        variant: "destructive",
       });
     } catch (error) {
       form.reset();

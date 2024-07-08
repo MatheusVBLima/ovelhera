@@ -67,6 +67,8 @@ export default function Historias() {
               <SelectItem value="gank">Gank</SelectItem>
               <SelectItem value="motivacional">Motivacional</SelectItem>
               <SelectItem value="opinioes">Opiniões</SelectItem>
+              <SelectItem value="machismo">Machismo</SelectItem>
+              <SelectItem value="piras">Piras</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>

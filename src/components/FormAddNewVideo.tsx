@@ -20,7 +20,7 @@ import { FileVideo } from "lucide-react";
 import { useSession } from "next-auth/react";
 
 const formSchema = z.object({
-  title: z.string().min(2).max(50),
+  title: z.string().min(2).max(80),
   url: z.string().url(),
   tag: z
     .string()
@@ -54,7 +54,7 @@ export default function FormAddNewVideo() {
       await api.post("/logs/", logData);
       toast({
         description: "Vídeo " + values.title + " adicionado com sucesso.",
-        variant: "default",
+        className: "bg-green-800",
       });
     } catch (error) {
       form.reset();

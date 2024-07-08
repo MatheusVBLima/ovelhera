@@ -1,3 +1,4 @@
+"use client";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Table,
@@ -9,35 +10,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
-const pessoas_ruins = [
-  { nome: "SURSKITY", status: "vingado" },
-  { nome: "AYEL", status: "vingado" },
-  { nome: "PRIMA CAIPIRA", status: "vingado" },
-  { nome: "LOIRA182", status: "vingado" },
-  { nome: "CESTARI", status: "vingado" },
-  { nome: "NAN4", status: "pending" },
-  { nome: "SOFEL", status: "pending" },
-  { nome: "JACOM3", status: "pending" },
-  { nome: "VEGGÆNO", status: "pending" },
-  { nome: "PHASI*OT", status: "pending" },
-  { nome: "CAIODANCARINO", status: "pending" },
-  { nome: "SHADiii", status: "pending" },
-  { nome: "TIRANO", status: "pending" },
-  { nome: "NAK00", status: "pending" },
-  { nome: "YASyMIMCAT", status: "pending" },
-  { nome: "MELIsS3X", status: "pending" },
-  { nome: "CACHORRO DO GRAGOLANDIA", status: "pending" },
-  { nome: "S4ORY", status: "pending" },
-  { nome: "MIOJO CAIPIRA", status: "pending" },
-  { nome: "DURODO ", status: "pending" },
-  { nome: "JUNIN", status: "pending" },
-  { nome: "SON3KINHA", status: "pending" },
-  { nome: "XY", status: "pending" },
-  { nome: "Websexo", status: "pending" },
-];
+import { useSession } from "next-auth/react";
+import data from "@/../data.json";
 
 export default function page() {
+  const { data: session } = useSession();
   return (
     <div className="container mt-10 space-y-12">
       <h1 className="text-center font-mono text-2xl font-bold">
@@ -53,7 +30,7 @@ export default function page() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {pessoas_ruins.map((pessoa) => (
+            {data.pessoas_ruins.map((pessoa) => (
               <TableRow key={pessoa.nome}>
                 <TableCell className="w-1/2 text-center">
                   {pessoa.nome}
