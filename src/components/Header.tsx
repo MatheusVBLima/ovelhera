@@ -7,7 +7,7 @@ import MobileNav from "./MobileNav";
 
 export function Header() {
   return (
-    <div className="z-100 sticky top-0 bg-background">
+    <div className="sticky top-0 z-10 bg-background">
       <header className="container flex items-center justify-between py-6">
         <Link href={"/"}>
           <Image

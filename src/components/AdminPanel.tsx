@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import FormAddNewVideo from "./FormAddNewVideo";
 import FormDeleteVideo from "./FormDeleteVideo";
 import FormLogs from "./FormLogs";
+import { FormVengeance } from "./FormVengeance";
+import { FormAddNewNameToVengeance } from "./FormAddNewNameToVengeance";
 
 export default function AdminPanel() {
   const { data: session } = useSession();
@@ -13,24 +15,47 @@ export default function AdminPanel() {
   const [isAddNewVideo, setIsAddNewVideo] = useState(true);
   const [isDeleteVideo, setIsDeleteVideo] = useState(false);
   const [isLogs, setIsLogs] = useState(false);
+  const [isVengeance, setIsVengeance] = useState(false);
+  const [isAddVengeance, setIsAddVengeance] = useState(false);
 
   function handleDeleteVideo() {
     setIsAddNewVideo(false);
-
     setIsLogs(false);
     setIsDeleteVideo(true);
+    setIsVengeance(false);
+    setIsAddVengeance(false);
   }
 
   function handleAddNewVideo() {
     setIsDeleteVideo(false);
     setIsLogs(false);
     setIsAddNewVideo(true);
+    setIsVengeance(false);
+    setIsAddVengeance(false);
   }
 
   function handleLogs() {
     setIsAddNewVideo(false);
     setIsDeleteVideo(false);
     setIsLogs(true);
+    setIsVengeance(false);
+    setIsAddVengeance(false);
+  }
+
+  function handleVengeance() {
+    setIsAddNewVideo(false);
+    setIsDeleteVideo(false);
+    setIsLogs(false);
+    setIsVengeance(true);
+    setIsAddVengeance(false);
+  }
+
+  function handleAddVengeance() {
+    setIsAddNewVideo(false);
+    setIsDeleteVideo(false);
+    setIsLogs(false);
+    setIsVengeance(false);
+    setIsAddVengeance(true);
   }
 
   return (
@@ -55,11 +80,19 @@ export default function AdminPanel() {
               <Button onClick={handleDeleteVideo} variant={"destructive"}>
                 Deletar Vídeo
               </Button>
+              <Button onClick={handleAddVengeance} variant={"outline"}>
+                Adicionar nome na lista
+              </Button>
+              <Button onClick={handleVengeance} variant={"outline"}>
+                Vingar
+              </Button>
             </div>
           </div>
           {isAddNewVideo && <FormAddNewVideo />}
           {isLogs && <FormLogs />}
           {isDeleteVideo && <FormDeleteVideo />}
+          {isVengeance && <FormVengeance />}
+          {isAddVengeance && <FormAddNewNameToVengeance />}
         </>
       )}
     </div>

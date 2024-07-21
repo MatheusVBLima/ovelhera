@@ -16,68 +16,68 @@ import {
 import { Input } from "@/components/ui/input";
 import { api } from "@/server/api";
 import { useToast } from "@/components/ui/use-toast";
-import { Trash } from "lucide-react";
+import { Skull } from "lucide-react";
 import { useSession } from "next-auth/react";
 
 const formSchema = z.object({
-  video_id: z.string().min(1, "O campo é obrigatório"),
+  name: z.string().min(1, "O campo é obrigatório"),
 });
 
-export default function FormDeleteVideo() {
-  const { data: session } = useSession();
+export function FormAddNewNameToVengeance() {
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      video_id: "",
+      name: "",
     },
   });
 
-  async function handleDelete(values: z.infer<typeof formSchema>) {
-    const response = await api.get(`/videos/${values.video_id}`);
-    const urlVideo = response.data.url;
-    const logData = {
-      name: session?.user?.name,
-      action: "Deletou um vídeo",
-      date: new Date().toLocaleDateString("pt-BR"),
-      url: urlVideo,
+  async function handleVengeance(values: z.infer<typeof formSchema>) {
+    const response = await api.get("/pessoas_ruins/");
+    const length = response.data.length;
+    const finalLength = length + 1;
+
+    const data = {
+      id: finalLength,
+      nome: values.name,
+      status: "pendente",
     };
     try {
-      await api.delete(`/videos/${values.video_id}`);
-      form.reset();
-      await api.post("/logs/", logData);
+      await api.post("/pessoas_ruins/", data);
       toast({
-        description:
-          "Vídeo de id " + values.video_id + " deletado com sucesso.",
-        variant: "destructive",
+        title: "Sucesso!",
+        description: `${values.name} adicionado com sucesso!`,
       });
+      form.reset();
     } catch (error) {
-      form.reset();
+      console.error(error);
       toast({
-        description: "Houve um erro ao deletar o video.",
-        variant: "destructive",
+        title: "Erro ",
+        description: "ID não encontrado.",
       });
+      form.reset();
     }
   }
   return (
     <>
       <h1 className="mt-16 text-center font-mono text-2xl font-bold">
-        Formulário para deletar histórias
+        Formulário para adicionar pessoa na lista negra
       </h1>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleDelete)} className="space-y-8">
+        <form
+          onSubmit={form.handleSubmit(handleVengeance)}
+          className="space-y-8"
+        >
           <FormField
             control={form.control}
-            name="video_id"
+            name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>ID do vídeo</FormLabel>
+                <FormLabel>Nome do canalha que voce quer vingar</FormLabel>
                 <FormControl>
-                  <Input placeholder="Ex. 16..." {...field} />
+                  <Input placeholder="Ex. GD..." {...field} />
                 </FormControl>
-                <FormDescription>
-                  ID do vídeo que deseja deletar.
-                </FormDescription>
+                <FormDescription>O nome do sujeito ruim</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -87,8 +87,8 @@ export default function FormDeleteVideo() {
             variant="outline"
             className="flex items-center gap-2 border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
           >
-            Deletar Vídeo
-            <Trash size={18} />
+            Adicionar
+            <Skull size={18} />
           </Button>
         </form>
       </Form>

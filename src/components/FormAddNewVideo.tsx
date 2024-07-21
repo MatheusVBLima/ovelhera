@@ -20,12 +20,21 @@ import { FileVideo } from "lucide-react";
 import { useSession } from "next-auth/react";
 
 const formSchema = z.object({
-  title: z.string().min(2).max(80),
-  url: z.string().url(),
+  title: z
+    .string()
+    .min(2, "O título do vídeo deve conter pelo menos 2 caracteres")
+    .max(80),
+  url: z.string().url("O link deve ser uma URL"),
   tag: z
     .string()
-    .min(1)
-    .transform((val) => val.split(",").map((tag) => tag.trim())),
+    .min(1, "O campo não pode ficar vazio")
+    .transform((val) => {
+      const tags = val.split(",").map((tag) => tag.trim());
+      if (tags.length === 0) {
+        throw new Error("Pelo menos uma tag deve ser fornecida");
+      }
+      return tags;
+    }),
 });
 
 export default function FormAddNewVideo() {
