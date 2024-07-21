@@ -3,13 +3,13 @@ import { useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import FormAddNewVideo from "./FormAddNewVideo";
-import FormDeleteVideo from "./FormDeleteVideo";
-import FormLogs from "./FormLogs";
+import { FormAddNewVideo } from "./FormAddNewVideo";
+import { FormDeleteVideo } from "./FormDeleteVideo";
+import { FormLogs } from "./FormLogs";
 import { FormVengeance } from "./FormVengeance";
 import { FormAddNewNameToVengeance } from "./FormAddNewNameToVengeance";
 
-export default function AdminPanel() {
+export function AdminPanel() {
   const { data: session } = useSession();
   const image = session?.user?.image || "";
   const [isAddNewVideo, setIsAddNewVideo] = useState(true);

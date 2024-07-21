@@ -12,7 +12,7 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 
-export default function MobileNav() {
+export function MobileNav() {
   return (
     <nav className="xl:hidden">
       <DropdownMenu>

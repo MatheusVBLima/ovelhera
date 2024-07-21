@@ -1,5 +1,5 @@
-import Historias from "@/components/Historias";
+import { Stories } from "@/components/Stories";
 
 export default function page() {
-  return <Historias />;
+  return <Stories />;
 }

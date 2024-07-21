@@ -17,14 +17,12 @@ import { Input } from "@/components/ui/input";
 import { api } from "@/server/api";
 import { useToast } from "@/components/ui/use-toast";
 import { Skull } from "lucide-react";
-import { useSession } from "next-auth/react";
 
 const formSchema = z.object({
   id: z.string().min(1, "O campo é obrigatório"),
 });
 
 export function FormVengeance() {
-  const { data: session } = useSession();
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -64,7 +62,7 @@ export function FormVengeance() {
     }
   }
   return (
-    <>
+    <div className="space-y-8">
       <h1 className="mt-16 text-center font-mono text-2xl font-bold">
         Formulário para adicionar vinganças
       </h1>
@@ -78,7 +76,9 @@ export function FormVengeance() {
             name="id"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>ID do canalha que deseja vingar</FormLabel>
+                <FormLabel>
+                  ID do canalha que deseja marcar como vingado
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="Ex. 10..." {...field} />
                 </FormControl>
@@ -97,6 +97,6 @@ export function FormVengeance() {
           </Button>
         </form>
       </Form>
-    </>
+    </div>
   );
 }

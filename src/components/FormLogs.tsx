@@ -19,7 +19,7 @@ import {
   PaginationPrevious,
 } from "./ui/pagination";
 
-export default function FormLogs() {
+export function FormLogs() {
   return (
     <>
       <h1 className="mt-16 text-center font-mono text-2xl font-bold">

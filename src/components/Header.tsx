@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Separator } from "./ui/separator";
-import WebNav from "./WebNav";
-import MobileNav from "./MobileNav";
+import { WebNav } from "./WebNav";
+import { MobileNav } from "./MobileNav";
 
 export function Header() {
   return (

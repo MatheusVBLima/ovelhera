@@ -17,7 +17,6 @@ import { Input } from "@/components/ui/input";
 import { api } from "@/server/api";
 import { useToast } from "@/components/ui/use-toast";
 import { Skull } from "lucide-react";
-import { useSession } from "next-auth/react";
 
 const formSchema = z.object({
   name: z.string().min(1, "O campo é obrigatório"),
@@ -36,12 +35,12 @@ export function FormAddNewNameToVengeance() {
     const response = await api.get("/pessoas_ruins/");
     const length = response.data.length;
     const finalLength = length + 1;
-
     const data = {
-      id: finalLength,
+      id: finalLength.toString(),
       nome: values.name,
       status: "pendente",
     };
+
     try {
       await api.post("/pessoas_ruins/", data);
       toast({
@@ -59,7 +58,7 @@ export function FormAddNewNameToVengeance() {
     }
   }
   return (
-    <>
+    <div className="space-y-8">
       <h1 className="mt-16 text-center font-mono text-2xl font-bold">
         Formulário para adicionar pessoa na lista negra
       </h1>
@@ -73,7 +72,7 @@ export function FormAddNewNameToVengeance() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Nome do canalha que voce quer vingar</FormLabel>
+                <FormLabel>Nome do canalha que voce quer se vingar</FormLabel>
                 <FormControl>
                   <Input placeholder="Ex. GD..." {...field} />
                 </FormControl>
@@ -92,6 +91,6 @@ export function FormAddNewNameToVengeance() {
           </Button>
         </form>
       </Form>
-    </>
+    </div>
   );
 }

@@ -37,7 +37,7 @@ const formSchema = z.object({
     }),
 });
 
-export default function FormAddNewVideo() {
+export function FormAddNewVideo() {
   const { data: session } = useSession();
   const { toast } = useToast();
 
@@ -75,7 +75,7 @@ export default function FormAddNewVideo() {
   }
 
   return (
-    <div>
+    <div className="space-y-8">
       <h1 className="mt-16 text-center font-mono text-2xl font-bold">
         Formulário para enviar histórias
       </h1>

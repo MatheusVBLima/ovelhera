@@ -23,7 +23,7 @@ const formSchema = z.object({
   video_id: z.string().min(1, "O campo é obrigatório"),
 });
 
-export default function FormDeleteVideo() {
+export function FormDeleteVideo() {
   const { data: session } = useSession();
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
@@ -60,7 +60,7 @@ export default function FormDeleteVideo() {
     }
   }
   return (
-    <>
+    <div className="space-y-8">
       <h1 className="mt-16 text-center font-mono text-2xl font-bold">
         Formulário para deletar histórias
       </h1>
@@ -92,6 +92,6 @@ export default function FormDeleteVideo() {
           </Button>
         </form>
       </Form>
-    </>
+    </div>
   );
 }

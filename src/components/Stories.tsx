@@ -22,7 +22,7 @@ import {
 import data from "@/../data.json";
 import { useState } from "react";
 
-export default function Historias() {
+export function Stories() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
 
