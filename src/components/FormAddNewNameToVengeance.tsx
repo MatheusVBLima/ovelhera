@@ -14,15 +14,19 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { api } from "@/server/api";
 import { useToast } from "@/components/ui/use-toast";
 import { Skull } from "lucide-react";
+import { addEnemy } from "../actions/actions";
+import { addLogVengeance } from "../actions/logsActions";
+import { useSession } from "next-auth/react";
+import { format } from "path";
 
 const formSchema = z.object({
   name: z.string().min(1, "O campo é obrigatório"),
 });
 
 export function FormAddNewNameToVengeance() {
+  const { data: session } = useSession();
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -31,22 +35,25 @@ export function FormAddNewNameToVengeance() {
     },
   });
 
-  async function handleVengeance(values: z.infer<typeof formSchema>) {
-    const response = await api.get("/pessoas_ruins/");
-    const length = response.data.length;
-    const finalLength = length + 1;
+  async function handleAddEnemy(values: z.infer<typeof formSchema>) {
     const data = {
-      id: finalLength.toString(),
-      nome: values.name,
+      name: values.name,
       status: "pendente",
     };
 
     try {
-      await api.post("/pessoas_ruins/", data);
+      await addEnemy(data);
+      await addLogVengeance({
+        name: session?.user?.name ?? "Usuário Deslogado",
+        action: "Adicionou um inimigo",
+        enemy: values.name,
+        date: new Date().toLocaleString("pt-BR"),
+      });
       toast({
         title: "Sucesso!",
         description: `${values.name} adicionado com sucesso!`,
       });
+
       form.reset();
     } catch (error) {
       console.error(error);
@@ -57,6 +64,7 @@ export function FormAddNewNameToVengeance() {
       form.reset();
     }
   }
+
   return (
     <div className="space-y-8">
       <h1 className="mt-16 text-center font-mono text-2xl font-bold">
@@ -64,7 +72,7 @@ export function FormAddNewNameToVengeance() {
       </h1>
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(handleVengeance)}
+          onSubmit={form.handleSubmit(handleAddEnemy)}
           className="space-y-8"
         >
           <FormField
