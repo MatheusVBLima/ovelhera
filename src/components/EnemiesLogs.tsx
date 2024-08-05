@@ -8,8 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import data from "@/../data.json";
-import Link from "next/link";
+
 import { Badge } from "./ui/badge";
 import {
   Pagination,
@@ -28,8 +27,17 @@ type Logs = {
   date: string;
 };
 
-export function FormLogs() {
+export function EnemiesLogs() {
   const [logs, setLogs] = useState<Logs[]>([]);
+
+  useEffect(() => {
+    async function fetchEnemies() {
+      const logs = await getLogs();
+      setLogs(logs);
+    }
+
+    fetchEnemies();
+  }, []);
 
   return (
     <>
@@ -38,18 +46,17 @@ export function FormLogs() {
       </h1>
       <Pagination>
         <PaginationContent>
-          <Table className="mt-10">
+          <Table className="mt-10 lg:w-[700px]">
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[200px]">Nome</TableHead>
+                <TableHead>Nome</TableHead>
                 <TableHead>Ação</TableHead>
-                <TableHead>URL</TableHead>
                 <TableHead>Inimigo</TableHead>
-                <TableHead className="text-right">Data</TableHead>
+                <TableHead>Data</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {data.logs.map((log, index) => (
+              {logs.map((log, index) => (
                 <TableRow key={index}>
                   <TableCell className="font-medium">{log.name}</TableCell>
                   {log.action === "Deletou um vídeo" ? (
@@ -63,17 +70,13 @@ export function FormLogs() {
                       </Badge>
                     </TableCell>
                   )}
-                  <TableCell>
-                    <Link href={log.url} target="_blank">
-                      {log.url}
-                    </Link>
-                  </TableCell>
 
-                  <TableCell className="text-right">{log.date}</TableCell>
+                  <TableCell>{log.enemy}</TableCell>
+                  <TableCell>{log.date}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
-            <TableFooter>
+            {/* <TableFooter>
               <TableRow>
                 <TableCell colSpan={2}>
                   <PaginationItem>
@@ -86,7 +89,7 @@ export function FormLogs() {
                   </PaginationItem>
                 </TableCell>
               </TableRow>
-            </TableFooter>
+            </TableFooter> */}
           </Table>
         </PaginationContent>
       </Pagination>

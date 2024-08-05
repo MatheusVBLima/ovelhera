@@ -11,15 +11,30 @@ import {
   TableHeader,
   TableRow,
 } from "./ui/table";
-import data from "@/../data.json";
+
+import { getEnemyList } from "../actions/actions";
+
+type EnemyList = {
+  id: number;
+  name: string;
+  status: string;
+};
+
 export function Enemies() {
   const [vingados, setVingados] = useState(0);
+  const [enemyList, setEnemyList] = useState<EnemyList[]>([]);
 
   useEffect(() => {
-    const pessoasVingadas = data.pessoas_ruins.filter(
-      (pessoa) => pessoa.status === "vingado",
-    );
-    setVingados(pessoasVingadas.length);
+    async function fetchEnemies() {
+      const enemies = await getEnemyList();
+      setEnemyList(enemies);
+      const totalVingados = enemies.filter(
+        (enemy) => enemy.status === "vingado",
+      ).length;
+      setVingados(totalVingados);
+    }
+
+    fetchEnemies();
   }, []);
 
   return (
@@ -38,24 +53,24 @@ export function Enemies() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data.pessoas_ruins.map((pessoa) => (
-              <TableRow key={pessoa.nome}>
+            {enemyList.map((enemy) => (
+              <TableRow key={enemy.id}>
                 <TableCell className="text-left" colSpan={1}>
-                  {pessoa.id}
+                  {enemy.id}
                 </TableCell>
                 <TableCell className="w-1/2 text-left" colSpan={1}>
-                  {pessoa.nome}
+                  {enemy.name}
                 </TableCell>
                 <TableCell
                   className="justify-left flex items-center gap-2"
                   colSpan={1}
                 >
-                  {pessoa.status === "vingado" ? (
+                  {enemy.status === "vingado" ? (
                     <Checkbox checked />
                   ) : (
                     <Checkbox disabled />
                   )}
-                  {pessoa.status}
+                  {enemy.status}
                 </TableCell>
               </TableRow>
             ))}

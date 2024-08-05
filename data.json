@@ -197,6 +197,12 @@
       "url": "https://www.youtube.com/watch?v=Kw3YMaIi3y0",
       "tag": ["tempero"],
       "id": "33"
+    },
+    {
+      "id": "9595",
+      "title": "História Tributo",
+      "url": "https://www.youtube.com/watch?v=m20Lynxbl6Q",
+      "tag": ["historias", "nojeira"]
     }
   ],
   "logs": [
@@ -437,6 +443,13 @@
       "date": "10/07/2024",
       "url": "https://www.youtube.com/watch?v=Kw3YMaIi3y0",
       "id": "34"
+    },
+    {
+      "id": "d94e",
+      "name": "nayark",
+      "action": "Adicionou um vídeo",
+      "date": "02/08/2024",
+      "url": "https://www.youtube.com/watch?v=m20Lynxbl6Q"
     }
   ],
   "pessoas_ruins": [
@@ -483,7 +496,7 @@
     {
       "id": "9",
       "nome": "VEGGÆNO",
-      "status": "pendente"
+      "status": "vingado"
     },
     {
       "id": "10",
@@ -493,7 +506,7 @@
     {
       "id": "11",
       "nome": "CAIODANCARINO",
-      "status": "pendente"
+      "status": "vingado"
     },
     {
       "id": "12",
@@ -528,12 +541,12 @@
     {
       "id": "18",
       "nome": "S4ORY",
-      "status": "pendente"
+      "status": "vingado"
     },
     {
       "id": "19",
       "nome": "MIOJO CAIPIRA",
-      "status": "vingado"
+      "status": "pendente"
     },
     {
       "id": "20",
@@ -550,19 +563,45 @@
       "nome": "SON3KINHA",
       "status": "pendente"
     },
+
     {
       "id": "23",
-      "nome": "XY",
-      "status": "pendente"
-    },
-    {
-      "id": "24",
       "nome": "Websexo",
       "status": "vingado"
     },
     {
-      "id": "25",
+      "id": "24",
       "nome": "Davi de Oliveira Lacerta - juiz ladrão",
+      "status": "pendente"
+    },
+    {
+      "id": "25",
+      "nome": "XY",
+      "status": "pendente"
+    },
+    {
+      "id": "26",
+      "nome": "limaoz1n",
+      "status": "pendente"
+    },
+    {
+      "id": "27",
+      "nome": "AMOMY",
+      "status": "pendente"
+    },
+    {
+      "id": "28",
+      "nome": "G De",
+      "status": "vingado"
+    },
+    {
+      "id": "29",
+      "nome": "CIROMTV",
+      "status": "pendente"
+    },
+    {
+      "id": "31",
+      "nome": "Narciso enxuga gelo",
       "status": "pendente"
     }
   ]

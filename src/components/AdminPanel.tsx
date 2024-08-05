@@ -8,6 +8,15 @@ import { FormDeleteVideo } from "./FormDeleteVideo";
 import { FormLogs } from "./FormLogs";
 import { FormVengeance } from "./FormVengeance";
 import { FormAddNewNameToVengeance } from "./FormAddNewNameToVengeance";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { EnemiesLogs } from "./EnemiesLogs";
 
 export function AdminPanel() {
   const { data: session } = useSession();
@@ -17,6 +26,7 @@ export function AdminPanel() {
   const [isLogs, setIsLogs] = useState(false);
   const [isVengeance, setIsVengeance] = useState(false);
   const [isAddVengeance, setIsAddVengeance] = useState(false);
+  const [isVengeanceLogs, setIsVengeanceLogs] = useState(false);
 
   function handleDeleteVideo() {
     setIsAddNewVideo(false);
@@ -24,6 +34,7 @@ export function AdminPanel() {
     setIsDeleteVideo(true);
     setIsVengeance(false);
     setIsAddVengeance(false);
+    setIsVengeanceLogs(false);
   }
 
   function handleAddNewVideo() {
@@ -32,6 +43,7 @@ export function AdminPanel() {
     setIsAddNewVideo(true);
     setIsVengeance(false);
     setIsAddVengeance(false);
+    setIsVengeanceLogs(false);
   }
 
   function handleLogs() {
@@ -40,6 +52,7 @@ export function AdminPanel() {
     setIsLogs(true);
     setIsVengeance(false);
     setIsAddVengeance(false);
+    setIsVengeanceLogs(false);
   }
 
   function handleVengeance() {
@@ -48,6 +61,7 @@ export function AdminPanel() {
     setIsLogs(false);
     setIsVengeance(true);
     setIsAddVengeance(false);
+    setIsVengeanceLogs(false);
   }
 
   function handleAddVengeance() {
@@ -56,6 +70,16 @@ export function AdminPanel() {
     setIsLogs(false);
     setIsVengeance(false);
     setIsAddVengeance(true);
+    setIsVengeanceLogs(false);
+  }
+
+  function handleIsVengeanceLogs() {
+    setIsAddNewVideo(false);
+    setIsDeleteVideo(false);
+    setIsLogs(false);
+    setIsVengeance(false);
+    setIsAddVengeance(false);
+    setIsVengeanceLogs(true);
   }
 
   return (
@@ -71,21 +95,85 @@ export function AdminPanel() {
               <p className="text-xl">Olá, {session.user?.name}</p>
             </div>
             <div className="flex items-center gap-4">
-              <Button onClick={handleAddNewVideo} variant={"outline"}>
-                Novo Vídeo
-              </Button>
-              <Button onClick={handleLogs} variant={"outline"}>
-                Logs
-              </Button>
-              <Button onClick={handleDeleteVideo} variant={"destructive"}>
-                Deletar Vídeo
-              </Button>
-              <Button onClick={handleAddVengeance} variant={"outline"}>
-                Adicionar nome na lista
-              </Button>
-              <Button onClick={handleVengeance} variant={"outline"}>
-                Vingar
-              </Button>
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger>Histórias</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[200px] grid-cols-1 gap-3 p-4 md:w-[300px]">
+                        <NavigationMenuLink>
+                          <Button
+                            onClick={handleAddNewVideo}
+                            variant={"outline"}
+                            className="w-full"
+                          >
+                            Nova História
+                          </Button>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink>
+                          <Button
+                            onClick={handleDeleteVideo}
+                            variant={"destructive"}
+                            className="w-full"
+                          >
+                            Deletar História
+                          </Button>
+                        </NavigationMenuLink>
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger>Logs</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[200px] grid-cols-1 gap-3 p-4 md:w-[300px]">
+                        <NavigationMenuLink>
+                          <Button
+                            onClick={handleLogs}
+                            variant={"outline"}
+                            className="w-full"
+                          >
+                            Ver Logs
+                          </Button>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink>
+                          <Button
+                            onClick={handleIsVengeanceLogs}
+                            variant={"outline"}
+                            className="w-full"
+                          >
+                            Ver Logs de Vingança
+                          </Button>
+                        </NavigationMenuLink>
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger>Vingança</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[200px] grid-cols-1 gap-3 p-4 md:w-[300px]">
+                        <NavigationMenuLink>
+                          <Button
+                            onClick={handleAddVengeance}
+                            variant={"outline"}
+                            className="w-full"
+                          >
+                            Adicionar nome na lista
+                          </Button>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink>
+                          <Button
+                            onClick={handleVengeance}
+                            variant={"outline"}
+                            className="w-full"
+                          >
+                            Vingar
+                          </Button>
+                        </NavigationMenuLink>
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
             </div>
           </div>
           {isAddNewVideo && <FormAddNewVideo />}
@@ -93,6 +181,7 @@ export function AdminPanel() {
           {isDeleteVideo && <FormDeleteVideo />}
           {isVengeance && <FormVengeance />}
           {isAddVengeance && <FormAddNewNameToVengeance />}
+          {isVengeanceLogs && <EnemiesLogs />}
         </>
       )}
     </div>
