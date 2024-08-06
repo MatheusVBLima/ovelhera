@@ -22,6 +22,7 @@ import {
 import { useState, useEffect } from "react";
 import { getVideos } from "../actions/videosActions";
 import { Skeleton } from "./ui/skeleton";
+import Link from "next/link";
 
 type Videos = {
   id: string;
@@ -63,20 +64,30 @@ export function Stories() {
     return (
       <div className="container mt-8 flex h-screen flex-col gap-8">
         <div className="flex justify-between">
-          <Skeleton className="h-[25px] w-[300px]" />
-          <Skeleton className="h-[25px] w-[300px]" />
+          <Skeleton className="h-[25px] w-[400px]" />
+          <Skeleton className="h-[25px] w-[400px]" />
         </div>
         <div className="grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 xl:grid-cols-3">
           {Array.from({ length: 9 }).map((_, index) => (
             <div key={index}>
-              <Skeleton className="h-[175px] w-[350px] rounded-xl" />
-              <div className="space-y-2">
-                <Skeleton className="h-4 w-[250px]" />
-                <Skeleton className="h-4 w-[200px]" />
-              </div>
+              <Skeleton className="h-[200px] w-[400px] rounded-xl" />
             </div>
           ))}
         </div>
+      </div>
+    );
+  }
+
+  if (videos.length === 0) {
+    return (
+      <div className="container mt-8 flex h-screen flex-col gap-8">
+        <h1 className="text-center text-2xl">
+          Nenhuma história encontrada. Adicione histórias no painel de
+          administração{" "}
+          <Link href="/admin" className="underline">
+            aqui
+          </Link>
+        </h1>
       </div>
     );
   }

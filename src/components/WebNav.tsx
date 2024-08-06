@@ -3,13 +3,31 @@ import React from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { ThemeSwitcher } from "./ThemeSwitcher";
-import { Speech, Skull, DoorClosed, Shield, Lock } from "lucide-react";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { Speech, Skull, DoorClosed, Shield, Home } from "lucide-react";
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export function WebNav() {
+  const router = useRouter();
+  async function handleSignOut() {
+    await signOut({ redirect: false });
+    router.push("/");
+  }
   const { data: session } = useSession();
   return (
     <nav className="hidden items-center gap-4 xl:flex">
+      {!session && (
+        <Button
+          className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+          asChild
+          variant={"outline"}
+        >
+          <Link href={"/"} className="flex items-center gap-2">
+            <span>HOME</span>
+            <Home size={18} />
+          </Link>
+        </Button>
+      )}
       <Button
         className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
         asChild
@@ -31,7 +49,7 @@ export function WebNav() {
           <Skull size={18} />
         </Link>
       </Button>
-      {session ? (
+      {session && (
         <>
           <Button
             className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
@@ -43,7 +61,7 @@ export function WebNav() {
             </Link>
           </Button>
           <Button
-            onClick={() => signOut()}
+            onClick={handleSignOut}
             variant={"outline"}
             className="flex items-center gap-2 border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
           >
@@ -51,15 +69,6 @@ export function WebNav() {
             <DoorClosed size={18} />
           </Button>
         </>
-      ) : (
-        <Button
-          onClick={() => signIn("discord")}
-          variant={"outline"}
-          className="flex items-center gap-2 border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
-        >
-          <span>LOGIN</span>
-          <Lock size={18} />
-        </Button>
       )}
       <ThemeSwitcher />
     </nav>
