@@ -13,7 +13,7 @@ const getLogsVideoSchema = z.object({
   id: z.string(),
   name: z.string(),
   action: z.string(),
-  url: z.string().url(),
+  url: z.string().url().nullable(),
   date: z.string(),
 });
 

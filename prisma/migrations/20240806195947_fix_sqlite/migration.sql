@@ -54,16 +54,41 @@ CREATE TABLE "videos" (
 );
 
 -- CreateTable
-CREATE TABLE "Tag" (
+CREATE TABLE "tag" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "enemy" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT NOT NULL,
+    "status" TEXT NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "logsvideo" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "action" TEXT NOT NULL,
+    "url" TEXT NOT NULL,
+    "date" TEXT NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "logsvengeance" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "action" TEXT NOT NULL,
+    "enemy" TEXT NOT NULL,
+    "date" TEXT NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "_TagToVideo" (
     "A" TEXT NOT NULL,
     "B" TEXT NOT NULL,
-    CONSTRAINT "_TagToVideo_A_fkey" FOREIGN KEY ("A") REFERENCES "Tag" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT "_TagToVideo_A_fkey" FOREIGN KEY ("A") REFERENCES "tag" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT "_TagToVideo_B_fkey" FOREIGN KEY ("B") REFERENCES "videos" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
 

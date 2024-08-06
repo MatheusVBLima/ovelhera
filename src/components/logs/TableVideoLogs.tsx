@@ -24,7 +24,7 @@ import { useEffect, useState } from "react";
 type VideoLogs = {
   name: string;
   action: string;
-  url: string;
+  url: string | null;
   date: string;
 };
 
@@ -72,9 +72,11 @@ export function FormLogs() {
                     </TableCell>
                   )}
                   <TableCell>
-                    <Link href={log.url} target="_blank">
-                      {log.url}
-                    </Link>
+                    {log.url && (
+                      <Link href={log.url} target="_blank">
+                        {log.url}
+                      </Link>
+                    )}
                   </TableCell>
 
                   <TableCell>{log.date}</TableCell>
