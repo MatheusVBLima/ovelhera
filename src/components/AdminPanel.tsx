@@ -3,11 +3,11 @@ import { useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { FormAddNewVideo } from "./FormAddNewVideo";
-import { FormDeleteVideo } from "./FormDeleteVideo";
-import { FormLogs } from "./FormLogs";
-import { FormVengeance } from "./FormVengeance";
-import { FormAddNewNameToVengeance } from "./FormAddNewNameToVengeance";
+import { FormAddNewVideo } from "./videos/FormAddNewVideo";
+import { FormDeleteVideo } from "./videos/FormDeleteVideo";
+import { FormLogs } from "./logs/TableVideoLogs";
+import { FormAvengeEnemy } from "./vengeance/FormAvengeEnemy";
+import { FormAddNewNameToVengeance } from "./vengeance/FormAddNewNameToVengeance";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -16,7 +16,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { EnemiesLogs } from "./EnemiesLogs";
+import { EnemiesLogs } from "./logs/TableEnemiesLogs";
 
 export function AdminPanel() {
   const { data: session } = useSession();
@@ -132,7 +132,7 @@ export function AdminPanel() {
                             variant={"outline"}
                             className="w-full"
                           >
-                            Ver Logs
+                            Ver Logs de Vídeos
                           </Button>
                         </NavigationMenuLink>
                         <NavigationMenuLink>
@@ -179,7 +179,7 @@ export function AdminPanel() {
           {isAddNewVideo && <FormAddNewVideo />}
           {isLogs && <FormLogs />}
           {isDeleteVideo && <FormDeleteVideo />}
-          {isVengeance && <FormVengeance />}
+          {isVengeance && <FormAvengeEnemy />}
           {isAddVengeance && <FormAddNewNameToVengeance />}
           {isVengeanceLogs && <EnemiesLogs />}
         </>

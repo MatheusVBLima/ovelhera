@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "A saga do Ovelhera",
-  description: "Acompanhe do nosso rastafari mineiro.",
+  description: "Acompanhe o nosso rastafari mineiro.",
 };
 
 export default function RootLayout({

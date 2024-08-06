@@ -10,26 +10,35 @@ import {
 } from "@/components/ui/table";
 import data from "@/../data.json";
 import Link from "next/link";
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 import {
   Pagination,
   PaginationContent,
   PaginationItem,
   PaginationNext,
   PaginationPrevious,
-} from "./ui/pagination";
-import { getLogs } from "../actions/logsActions";
+} from "../ui/pagination";
+import { getVideoLogs } from "../../actions/logsActions";
 import { useEffect, useState } from "react";
 
-type Logs = {
+type VideoLogs = {
   name: string;
   action: string;
-  enemy: string;
+  url: string;
   date: string;
 };
 
 export function FormLogs() {
-  const [logs, setLogs] = useState<Logs[]>([]);
+  const [logs, setLogs] = useState<VideoLogs[]>([]);
+
+  useEffect(() => {
+    async function fetchLogs() {
+      const videoLogs = await getVideoLogs();
+      setLogs(videoLogs);
+    }
+
+    fetchLogs();
+  }, []);
 
   return (
     <>
@@ -38,18 +47,17 @@ export function FormLogs() {
       </h1>
       <Pagination>
         <PaginationContent>
-          <Table className="mt-10">
+          <Table className="mt-10 lg:w-[900px]">
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[200px]">Nome</TableHead>
+                <TableHead>Nome</TableHead>
                 <TableHead>Ação</TableHead>
                 <TableHead>URL</TableHead>
-                <TableHead>Inimigo</TableHead>
-                <TableHead className="text-right">Data</TableHead>
+                <TableHead>Data</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {data.logs.map((log, index) => (
+              {logs.map((log, index) => (
                 <TableRow key={index}>
                   <TableCell className="font-medium">{log.name}</TableCell>
                   {log.action === "Deletou um vídeo" ? (
@@ -69,24 +77,10 @@ export function FormLogs() {
                     </Link>
                   </TableCell>
 
-                  <TableCell className="text-right">{log.date}</TableCell>
+                  <TableCell>{log.date}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
-            <TableFooter>
-              <TableRow>
-                <TableCell colSpan={2}>
-                  <PaginationItem>
-                    <PaginationPrevious />
-                  </PaginationItem>
-                </TableCell>
-                <TableCell colSpan={2} className="text-right">
-                  <PaginationItem>
-                    <PaginationNext />
-                  </PaginationItem>
-                </TableCell>
-              </TableRow>
-            </TableFooter>
           </Table>
         </PaginationContent>
       </Pagination>

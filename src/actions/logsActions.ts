@@ -3,11 +3,10 @@ import { prisma } from "@/lib/prisma";
 import { z } from "zod";
 
 const logsVideoSchema = z.object({
-  id: z.string(),
   name: z.string(),
   action: z.string(),
   url: z.string().url(),
-  date: z.coerce.date(),
+  date: z.string(),
 });
 
 const logsVengeanceSchema = z.object({
@@ -16,14 +15,14 @@ const logsVengeanceSchema = z.object({
   enemy: z.string(),
   date: z.string(),
 });
-export async function getLogs(): Promise<
+export async function getVengeanceLogs(): Promise<
   z.infer<typeof logsVengeanceSchema>[]
 > {
   const logs = await prisma.logsVengeance.findMany();
   return logs;
 }
 
-export async function addLogVengeance(
+export async function addVengeanceLog(
   input: z.infer<typeof logsVengeanceSchema>,
 ) {
   const log = await prisma.logsVengeance.create({
@@ -31,6 +30,25 @@ export async function addLogVengeance(
       name: input.name,
       action: input.action,
       enemy: input.enemy,
+      date: input.date,
+    },
+  });
+  return log;
+}
+
+export async function getVideoLogs(): Promise<
+  z.infer<typeof logsVideoSchema>[]
+> {
+  const logs = await prisma.logsVideo.findMany();
+  return logs;
+}
+
+export async function addVideoLog(input: z.infer<typeof logsVideoSchema>) {
+  const log = await prisma.logsVideo.create({
+    data: {
+      name: input.name,
+      action: input.action,
+      url: input.url,
       date: input.date,
     },
   });

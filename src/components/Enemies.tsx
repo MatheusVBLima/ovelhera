@@ -12,7 +12,7 @@ import {
   TableRow,
 } from "./ui/table";
 
-import { getEnemyList } from "../actions/actions";
+import { getEnemyList } from "../actions/enemiesActions";
 
 type EnemyList = {
   id: number;
