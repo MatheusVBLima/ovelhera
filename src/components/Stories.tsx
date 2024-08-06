@@ -19,21 +19,67 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import data from "@/../data.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getVideos } from "../actions/videosActions";
+import { Skeleton } from "./ui/skeleton";
+
+type Videos = {
+  id: string;
+  title: string;
+  url: string;
+  tags: {
+    name: string;
+  }[];
+};
 
 export function Stories() {
+  const [videos, setVideos] = useState<Videos[]>([]);
+  const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredData = data.videos.filter((item) => {
+  useEffect(() => {
+    async function fetchVideos() {
+      const videos = await getVideos();
+      setVideos(videos);
+      setLoading(false);
+    }
+
+    fetchVideos();
+  }, []);
+
+  const filteredData = videos.filter((item) => {
     const matchesCategory =
-      selectedCategory === "all" ? true : item.tag.includes(selectedCategory);
+      selectedCategory === "all"
+        ? true
+        : item.tags.some((tag) => tag.name === selectedCategory);
     const matchesSearchTerm = item.title
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearchTerm;
   });
+
+  if (loading) {
+    return (
+      <div className="container mt-8 flex h-screen flex-col gap-8">
+        <div className="flex justify-between">
+          <Skeleton className="h-[25px] w-[300px]" />
+          <Skeleton className="h-[25px] w-[300px]" />
+        </div>
+        <div className="grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {Array.from({ length: 9 }).map((_, index) => (
+            <div key={index}>
+              <Skeleton className="h-[175px] w-[350px] rounded-xl" />
+              <div className="space-y-2">
+                <Skeleton className="h-4 w-[250px]" />
+                <Skeleton className="h-4 w-[200px]" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mt-8">
@@ -73,6 +119,7 @@ export function Stories() {
           </SelectContent>
         </Select>
       </div>
+
       <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {filteredData.map((item) => {
           const videoId = new URL(item.url).searchParams.get("v");
@@ -93,8 +140,8 @@ export function Stories() {
                 ></iframe>
               </CardContent>
               <CardFooter className="flex gap-4">
-                {item.tag.map((tag) => (
-                  <Badge key={tag}>{tag}</Badge>
+                {item.tags.map((tag, index) => (
+                  <Badge key={index}>{tag.name}</Badge>
                 ))}
               </CardFooter>
             </Card>

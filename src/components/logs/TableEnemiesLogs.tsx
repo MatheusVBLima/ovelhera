@@ -9,18 +9,18 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 import {
   Pagination,
   PaginationContent,
   PaginationItem,
   PaginationNext,
   PaginationPrevious,
-} from "./ui/pagination";
-import { getLogs } from "../actions/logsActions";
+} from "../ui/pagination";
+import { getVengeanceLogs } from "../../actions/logsActions";
 import { useEffect, useState } from "react";
 
-type Logs = {
+type EnemyLogs = {
   name: string;
   action: string;
   enemy: string;
@@ -28,11 +28,11 @@ type Logs = {
 };
 
 export function EnemiesLogs() {
-  const [logs, setLogs] = useState<Logs[]>([]);
+  const [logs, setLogs] = useState<EnemyLogs[]>([]);
 
   useEffect(() => {
     async function fetchEnemies() {
-      const logs = await getLogs();
+      const logs = await getVengeanceLogs();
       setLogs(logs);
     }
 

@@ -83,10 +83,10 @@ model Enemy {
 }
 
 model LogsVideo {
-  id     String  @id @default(cuid())
+  id     String @id @default(cuid())
   name   String
   action String
-  url    String?
+  url    String
   date   String
 
   @@map("logsvideo")

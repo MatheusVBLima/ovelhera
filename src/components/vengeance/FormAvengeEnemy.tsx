@@ -16,50 +16,52 @@ import {
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { Skull } from "lucide-react";
-import { addEnemy } from "../actions/actions";
-import { addLogVengeance } from "../actions/logsActions";
+import { updateEnemyStatus, getEnemyById } from "../../actions/enemiesActions";
+import { addVengeanceLog } from "../../actions/logsActions";
 import { useSession } from "next-auth/react";
-import { format } from "path";
 
 const formSchema = z.object({
-  name: z.string().min(1, "O campo é obrigatório"),
+  id: z.string().min(1, "O campo é obrigatório"),
 });
 
-export function FormAddNewNameToVengeance() {
+export function FormAvengeEnemy() {
   const { data: session } = useSession();
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      id: "",
     },
   });
 
-  async function handleAddEnemy(values: z.infer<typeof formSchema>) {
-    const data = {
-      name: values.name,
-      status: "pendente",
-    };
-
+  async function handleVengeance(values: z.infer<typeof formSchema>) {
     try {
-      await addEnemy(data);
-      await addLogVengeance({
+      const enemy = await getEnemyById(parseInt(values.id, 10));
+      if (!enemy) {
+        toast({
+          title: "Erro",
+          description: `Inimigo de ID ${values.id} não encontrado!`,
+        });
+        form.reset();
+        return;
+      }
+      await updateEnemyStatus({ id: parseInt(values.id, 10) });
+
+      await addVengeanceLog({
         name: session?.user?.name ?? "Usuário Deslogado",
-        action: "Adicionou um inimigo",
-        enemy: values.name,
+        action: "Vingou um inimigo",
+        enemy: enemy.name,
         date: new Date().toLocaleString("pt-BR"),
       });
       toast({
-        title: "Sucesso!",
-        description: `${values.name} adicionado com sucesso!`,
+        title: "Sucesso",
+        description: `${enemy.name} foi vingado com sucesso!`,
       });
-
       form.reset();
     } catch (error) {
-      console.error(error);
       toast({
-        title: "Erro ",
-        description: "ID não encontrado.",
+        title: "Erro",
+        description: `O canalha de ID ${values.id} já foi vingado`,
       });
       form.reset();
     }
@@ -68,23 +70,25 @@ export function FormAddNewNameToVengeance() {
   return (
     <div className="space-y-8">
       <h1 className="mt-16 text-center font-mono text-2xl font-bold">
-        Formulário para adicionar pessoa na lista negra
+        Formulário para adicionar vinganças
       </h1>
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(handleAddEnemy)}
+          onSubmit={form.handleSubmit(handleVengeance)}
           className="space-y-8"
         >
           <FormField
             control={form.control}
-            name="name"
+            name="id"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Nome do canalha que voce quer se vingar</FormLabel>
+                <FormLabel>
+                  ID do canalha que deseja marcar como vingado
+                </FormLabel>
                 <FormControl>
-                  <Input placeholder="Ex. GD..." {...field} />
+                  <Input placeholder="Ex. 10..." {...field} />
                 </FormControl>
-                <FormDescription>O nome do sujeito ruim</FormDescription>
+                <FormDescription>O id do sujeito ruim</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -94,7 +98,7 @@ export function FormAddNewNameToVengeance() {
             variant="outline"
             className="flex items-center gap-2 border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
           >
-            Adicionar
+            Vingar
             <Skull size={18} />
           </Button>
         </form>

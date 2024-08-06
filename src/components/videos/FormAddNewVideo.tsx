@@ -14,10 +14,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { api } from "@/server/api";
 import { useToast } from "@/components/ui/use-toast";
 import { FileVideo } from "lucide-react";
 import { useSession } from "next-auth/react";
+import { addVideo } from "../../actions/videosActions";
+import { addVideoLog } from "../../actions/logsActions";
 
 const formSchema = z.object({
   title: z
@@ -52,15 +53,22 @@ export function FormAddNewVideo() {
 
   async function handleOnSubmit(values: z.infer<typeof formSchema>) {
     const logData = {
-      name: session?.user?.name,
+      name: session?.user?.name ?? "",
       action: "Adicionou um vídeo",
+      url: values.url ?? "",
       date: new Date().toLocaleDateString("pt-BR"),
-      url: values.url,
     };
+
+    const videoData = {
+      title: values.title,
+      url: values.url,
+      tags: values.tag.map((tag) => ({ name: tag })),
+    };
+
     try {
-      await api.post("/videos/", values);
+      await addVideo(videoData);
       form.reset();
-      await api.post("/logs/", logData);
+      await addVideoLog(logData);
       toast({
         description: "Vídeo " + values.title + " adicionado com sucesso.",
         className: "bg-green-800",
@@ -68,7 +76,7 @@ export function FormAddNewVideo() {
     } catch (error) {
       form.reset();
       toast({
-        description: "Houve um erro ao adicionar o video.",
+        description: "Houve um erro ao adicionar o vídeo.",
         variant: "destructive",
       });
     }
