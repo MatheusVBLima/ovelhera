@@ -37,14 +37,23 @@ export function FormDeleteVideo() {
   async function handleDelete(values: z.infer<typeof formSchema>) {
     try {
       const video = await getVideoById(values.video_id);
-      const urlVideo = video?.url;
+
+      if (!video) {
+        toast({
+          title: "Erro",
+          description: `Vídeo de ID ${values.video_id} não encontrado!`,
+        });
+        form.reset();
+        return;
+      }
+      const urlVideo = video.url;
 
       await deleteVideo(values.video_id);
 
       const logData = {
         name: session?.user?.name ?? "",
         action: "Deletou um vídeo",
-        url: urlVideo ?? "",
+        url: urlVideo,
         date: new Date().toLocaleDateString("pt-BR"),
       };
 

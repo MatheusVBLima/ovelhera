@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { Speech, Skull, DoorClosed, Shield, Lock } from "lucide-react";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { api } from "@/server/api";
 
 export function WebNav() {
   const { data: session } = useSession();
