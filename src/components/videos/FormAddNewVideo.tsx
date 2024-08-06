@@ -55,7 +55,7 @@ export function FormAddNewVideo() {
     const logData = {
       name: session?.user?.name ?? "",
       action: "Adicionou um vídeo",
-      url: values.url ?? "",
+      url: values.url,
       date: new Date().toLocaleDateString("pt-BR"),
     };
 
