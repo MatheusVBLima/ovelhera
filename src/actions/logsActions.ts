@@ -9,12 +9,21 @@ const logsVideoSchema = z.object({
   date: z.string(),
 });
 
+const getLogsVideoSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  action: z.string(),
+  url: z.string().url(),
+  date: z.string(),
+});
+
 const logsVengeanceSchema = z.object({
   name: z.string(),
   action: z.string(),
   enemy: z.string(),
   date: z.string(),
 });
+
 export async function getVengeanceLogs(): Promise<
   z.infer<typeof logsVengeanceSchema>[]
 > {
@@ -37,7 +46,7 @@ export async function addVengeanceLog(
 }
 
 export async function getVideoLogs(): Promise<
-  z.infer<typeof logsVideoSchema>[]
+  z.infer<typeof getLogsVideoSchema>[]
 > {
   const logs = await prisma.logsVideo.findMany();
   return logs;
