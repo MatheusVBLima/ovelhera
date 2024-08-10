@@ -50,7 +50,7 @@ export function EnemiesLogs() {
             <TableHeader>
               <TableRow>
                 <TableHead>Nome</TableHead>
-                <TableHead>Ação</TableHead>
+                <TableHead className="w-[200px]">Ação</TableHead>
                 <TableHead>Inimigo</TableHead>
                 <TableHead>Data</TableHead>
               </TableRow>

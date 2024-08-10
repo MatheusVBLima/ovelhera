@@ -58,6 +58,17 @@ export async function updateVideo(
   id: string,
   input: z.infer<typeof videoSchema>,
 ) {
+  await prisma.video.update({
+    where: {
+      id: id,
+    },
+    data: {
+      tags: {
+        deleteMany: {},
+      },
+    },
+  });
+
   const video = await prisma.video.update({
     where: {
       id: id,
@@ -72,5 +83,6 @@ export async function updateVideo(
       },
     },
   });
+
   return video;
 }
