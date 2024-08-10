@@ -8,7 +8,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import data from "@/../data.json";
 import Link from "next/link";
 import { Badge } from "../ui/badge";
 import {
@@ -64,9 +63,15 @@ export function FormLogs() {
                     <TableCell>
                       <Badge variant="destructive">{log.action}</Badge>
                     </TableCell>
-                  ) : (
+                  ) : log.action === "Adicionou um vídeo" ? (
                     <TableCell>
                       <Badge variant={"outline"} className="bg-green-800">
+                        {log.action}
+                      </Badge>
+                    </TableCell>
+                  ) : (
+                    <TableCell>
+                      <Badge variant={"outline"} className="bg-yellow-600">
                         {log.action}
                       </Badge>
                     </TableCell>
@@ -78,7 +83,6 @@ export function FormLogs() {
                       </Link>
                     )}
                   </TableCell>
-
                   <TableCell>{log.date}</TableCell>
                 </TableRow>
               ))}

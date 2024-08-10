@@ -1,0 +1,54 @@
+"filename", "language", "TypeScript", "TypeScript JSX", "PostCSS", "comment", "blank", "total"
+"d:\Web Workspace\Next\ovelhera\src\actions\enemiesActions.ts", "TypeScript", 54, 0, 0, 0, 12, 66
+"d:\Web Workspace\Next\ovelhera\src\actions\logsActions.ts", "TypeScript", 58, 0, 0, 0, 8, 66
+"d:\Web Workspace\Next\ovelhera\src\actions\videosActions.ts", "TypeScript", 79, 0, 0, 0, 10, 89
+"d:\Web Workspace\Next\ovelhera\src\app\admin\page.tsx", "TypeScript JSX", 0, 4, 0, 0, 2, 6
+"d:\Web Workspace\Next\ovelhera\src\app\api\auth\[...nextauth]\route.ts", "TypeScript", 4, 0, 0, 0, 3, 7
+"d:\Web Workspace\Next\ovelhera\src\app\globals.css", "PostCSS", 0, 0, 56, 0, 21, 77
+"d:\Web Workspace\Next\ovelhera\src\app\historias\page.tsx", "TypeScript JSX", 0, 4, 0, 0, 2, 6
+"d:\Web Workspace\Next\ovelhera\src\app\inimigos\page.tsx", "TypeScript JSX", 0, 4, 0, 0, 2, 6
+"d:\Web Workspace\Next\ovelhera\src\app\layout.tsx", "TypeScript JSX", 0, 41, 0, 0, 4, 45
+"d:\Web Workspace\Next\ovelhera\src\app\page.tsx", "TypeScript JSX", 0, 8, 0, 0, 2, 10
+"d:\Web Workspace\Next\ovelhera\src\components\AdminPanel.tsx", "TypeScript JSX", 0, 208, 0, 0, 10, 218
+"d:\Web Workspace\Next\ovelhera\src\components\Enemies.tsx", "TypeScript JSX", 0, 86, 0, 0, 7, 93
+"d:\Web Workspace\Next\ovelhera\src\components\Header.tsx", "TypeScript JSX", 0, 26, 0, 0, 3, 29
+"d:\Web Workspace\Next\ovelhera\src\components\LoginForm.tsx", "TypeScript JSX", 0, 58, 0, 0, 2, 60
+"d:\Web Workspace\Next\ovelhera\src\components\MobileNav.tsx", "TypeScript JSX", 0, 50, 0, 0, 2, 52
+"d:\Web Workspace\Next\ovelhera\src\components\Stories.tsx", "TypeScript JSX", 0, 155, 0, 0, 10, 165
+"d:\Web Workspace\Next\ovelhera\src\components\Theme-Provider.tsx", "TypeScript JSX", 0, 7, 0, 0, 3, 10
+"d:\Web Workspace\Next\ovelhera\src\components\ThemeSwitcher.tsx", "TypeScript JSX", 0, 40, 0, 0, 5, 45
+"d:\Web Workspace\Next\ovelhera\src\components\WebNav.tsx", "TypeScript JSX", 0, 74, 0, 0, 3, 77
+"d:\Web Workspace\Next\ovelhera\src\components\logs\TableEnemiesLogs.tsx", "TypeScript JSX", 0, 77, 0, 14, 8, 99
+"d:\Web Workspace\Next\ovelhera\src\components\logs\TableVideoLogs.tsx", "TypeScript JSX", 0, 90, 0, 0, 6, 96
+"d:\Web Workspace\Next\ovelhera\src\components\sessionWrapper\SessionWrapper.tsx", "TypeScript JSX", 0, 9, 0, 0, 3, 12
+"d:\Web Workspace\Next\ovelhera\src\components\ui\alert-dialog.tsx", "TypeScript JSX", 0, 127, 0, 0, 15, 142
+"d:\Web Workspace\Next\ovelhera\src\components\ui\avatar.tsx", "TypeScript JSX", 0, 44, 0, 0, 7, 51
+"d:\Web Workspace\Next\ovelhera\src\components\ui\badge.tsx", "TypeScript JSX", 0, 31, 0, 0, 6, 37
+"d:\Web Workspace\Next\ovelhera\src\components\ui\button.tsx", "TypeScript JSX", 0, 51, 0, 0, 6, 57
+"d:\Web Workspace\Next\ovelhera\src\components\ui\card.tsx", "TypeScript JSX", 0, 78, 0, 0, 9, 87
+"d:\Web Workspace\Next\ovelhera\src\components\ui\checkbox.tsx", "TypeScript JSX", 0, 26, 0, 0, 5, 31
+"d:\Web Workspace\Next\ovelhera\src\components\ui\dropdown-menu.tsx", "TypeScript JSX", 0, 182, 0, 0, 19, 201
+"d:\Web Workspace\Next\ovelhera\src\components\ui\form.tsx", "TypeScript JSX", 0, 152, 0, 0, 25, 177
+"d:\Web Workspace\Next\ovelhera\src\components\ui\input.tsx", "TypeScript JSX", 0, 21, 0, 0, 5, 26
+"d:\Web Workspace\Next\ovelhera\src\components\ui\label.tsx", "TypeScript JSX", 0, 21, 0, 0, 6, 27
+"d:\Web Workspace\Next\ovelhera\src\components\ui\navigation-menu.tsx", "TypeScript JSX", 0, 117, 0, 0, 12, 129
+"d:\Web Workspace\Next\ovelhera\src\components\ui\pagination.tsx", "TypeScript JSX", 0, 107, 0, 0, 11, 118
+"d:\Web Workspace\Next\ovelhera\src\components\ui\select.tsx", "TypeScript JSX", 0, 146, 0, 0, 15, 161
+"d:\Web Workspace\Next\ovelhera\src\components\ui\separator.tsx", "TypeScript JSX", 0, 27, 0, 0, 5, 32
+"d:\Web Workspace\Next\ovelhera\src\components\ui\skeleton.tsx", "TypeScript JSX", 0, 13, 0, 0, 3, 16
+"d:\Web Workspace\Next\ovelhera\src\components\ui\table.tsx", "TypeScript JSX", 0, 107, 0, 0, 11, 118
+"d:\Web Workspace\Next\ovelhera\src\components\ui\textarea.tsx", "TypeScript JSX", 0, 20, 0, 0, 5, 25
+"d:\Web Workspace\Next\ovelhera\src\components\ui\toast.tsx", "TypeScript JSX", 0, 116, 0, 0, 14, 130
+"d:\Web Workspace\Next\ovelhera\src\components\ui\toaster.tsx", "TypeScript JSX", 0, 32, 0, 0, 4, 36
+"d:\Web Workspace\Next\ovelhera\src\components\ui\use-toast.ts", "TypeScript", 160, 0, 0, 3, 32, 195
+"d:\Web Workspace\Next\ovelhera\src\components\vengeance\FormAddNewNameToVengeance.tsx", "TypeScript JSX", 0, 96, 0, 0, 8, 104
+"d:\Web Workspace\Next\ovelhera\src\components\vengeance\FormAvengeEnemy.tsx", "TypeScript JSX", 0, 102, 0, 0, 7, 109
+"d:\Web Workspace\Next\ovelhera\src\components\videos\FormAddNewVideo.tsx", "TypeScript JSX", 0, 154, 0, 0, 9, 163
+"d:\Web Workspace\Next\ovelhera\src\components\videos\FormDeleteVideo.tsx", "TypeScript JSX", 0, 102, 0, 0, 11, 113
+"d:\Web Workspace\Next\ovelhera\src\components\videos\FormEditVideo.tsx", "TypeScript JSX", 0, 172, 0, 0, 10, 182
+"d:\Web Workspace\Next\ovelhera\src\lib\authOptions.ts", "TypeScript", 10, 0, 0, 0, 2, 12
+"d:\Web Workspace\Next\ovelhera\src\lib\get-url.ts", "TypeScript", 6, 0, 0, 0, 1, 7
+"d:\Web Workspace\Next\ovelhera\src\lib\prisma.ts", "TypeScript", 2, 0, 0, 0, 2, 4
+"d:\Web Workspace\Next\ovelhera\src\lib\utils.ts", "TypeScript", 5, 0, 0, 0, 2, 7
+"d:\Web Workspace\Next\ovelhera\src\middleware.ts", "TypeScript", 15, 0, 0, 0, 5, 20
+"Total", "-", 393, 2985, 56, 17, 400, 3851

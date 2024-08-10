@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { FormAddNewVideo } from "./videos/FormAddNewVideo";
+import { FormEditVideo } from "./videos/FormEditVideo";
 import { FormDeleteVideo } from "./videos/FormDeleteVideo";
 import { FormLogs } from "./logs/TableVideoLogs";
 import { FormAvengeEnemy } from "./vengeance/FormAvengeEnemy";
@@ -27,6 +28,7 @@ export function AdminPanel() {
   const [isVengeance, setIsVengeance] = useState(false);
   const [isAddVengeance, setIsAddVengeance] = useState(false);
   const [isVengeanceLogs, setIsVengeanceLogs] = useState(false);
+  const [isEditVideo, setIsEditVideo] = useState(false);
 
   function handleDeleteVideo() {
     setIsAddNewVideo(false);
@@ -35,6 +37,7 @@ export function AdminPanel() {
     setIsVengeance(false);
     setIsAddVengeance(false);
     setIsVengeanceLogs(false);
+    setIsEditVideo(false);
   }
 
   function handleAddNewVideo() {
@@ -44,6 +47,17 @@ export function AdminPanel() {
     setIsVengeance(false);
     setIsAddVengeance(false);
     setIsVengeanceLogs(false);
+    setIsEditVideo(false);
+  }
+
+  function handleEditVideo() {
+    setIsAddNewVideo(false);
+    setIsDeleteVideo(false);
+    setIsLogs(false);
+    setIsVengeance(false);
+    setIsAddVengeance(false);
+    setIsVengeanceLogs(false);
+    setIsEditVideo(true);
   }
 
   function handleLogs() {
@@ -53,6 +67,7 @@ export function AdminPanel() {
     setIsVengeance(false);
     setIsAddVengeance(false);
     setIsVengeanceLogs(false);
+    setIsEditVideo(false);
   }
 
   function handleVengeance() {
@@ -62,6 +77,7 @@ export function AdminPanel() {
     setIsVengeance(true);
     setIsAddVengeance(false);
     setIsVengeanceLogs(false);
+    setIsEditVideo(false);
   }
 
   function handleAddVengeance() {
@@ -71,6 +87,7 @@ export function AdminPanel() {
     setIsVengeance(false);
     setIsAddVengeance(true);
     setIsVengeanceLogs(false);
+    setIsEditVideo(false);
   }
 
   function handleIsVengeanceLogs() {
@@ -80,6 +97,7 @@ export function AdminPanel() {
     setIsVengeance(false);
     setIsAddVengeance(false);
     setIsVengeanceLogs(true);
+    setIsEditVideo(false);
   }
 
   return (
@@ -108,6 +126,15 @@ export function AdminPanel() {
                             className="w-full"
                           >
                             Nova História
+                          </Button>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink>
+                          <Button
+                            onClick={handleEditVideo}
+                            variant={"outline"}
+                            className="w-full"
+                          >
+                            Editar História
                           </Button>
                         </NavigationMenuLink>
                         <NavigationMenuLink>
@@ -182,6 +209,7 @@ export function AdminPanel() {
           {isVengeance && <FormAvengeEnemy />}
           {isAddVengeance && <FormAddNewNameToVengeance />}
           {isVengeanceLogs && <EnemiesLogs />}
+          {isEditVideo && <FormEditVideo />}
         </>
       )}
     </div>
