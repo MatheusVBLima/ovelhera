@@ -23,6 +23,10 @@ export default function RootLayout({
       <html lang="pt-br" suppressHydrationWarning>
         <head>
           <link rel="icon" href="/maconha_2.png" sizes="32" />
+          <meta
+            http-equiv="Permissions-Policy"
+            content="interest-cohort=()"
+          ></meta>
         </head>
         <body className={inter.className}>
           <ThemeProvider
