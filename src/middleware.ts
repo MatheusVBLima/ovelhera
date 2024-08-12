@@ -6,7 +6,7 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   if (pathname === "/" && token) {
-    return NextResponse.redirect(new URL(getUrl("/admin")));
+    return NextResponse.redirect(new URL(getUrl("/historias")));
   }
 
   if (pathname.includes("/admin") && !token) {
