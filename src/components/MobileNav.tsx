@@ -13,6 +13,7 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
+import admins from "../../admins.json";
 
 export function MobileNav() {
   async function handleSignOut() {
@@ -55,16 +56,18 @@ export function MobileNav() {
 
           {session && (
             <>
-              <DropdownMenuItem>
-                <Button
-                  className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
-                  variant={"outline"}
-                >
-                  <Link href="admin" className="flex items-center gap-2">
-                    <span>ADMIN</span>
-                  </Link>
-                </Button>
-              </DropdownMenuItem>
+              {admins.some((admin) => admin.name === session?.user?.name) && (
+                <DropdownMenuItem>
+                  <Button
+                    className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+                    variant={"outline"}
+                  >
+                    <Link href="admin" className="flex items-center gap-2">
+                      <span>ADMIN</span>
+                    </Link>
+                  </Button>
+                </DropdownMenuItem>
+              )}
               <DropdownMenuItem>
                 <Button
                   onClick={handleSignOut}
