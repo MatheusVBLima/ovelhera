@@ -12,10 +12,13 @@ export function LoginForm() {
       <div className="flex items-center justify-center py-12">
         <div className="mx-auto grid w-[350px] gap-6">
           <div className="grid gap-2 text-center">
-            <h1 className="text-3xl font-bold">Login</h1>
+            <h1 className="text-3xl font-bold">Login para admin</h1>
             <p className="text-balance text-muted-foreground">
-              Atualmente só implementei o login pelo Discord. Login com email e
-              senha em breve xD
+              Logue apenas se for um dos admins. Caso queira ver as histórias,
+              não precisa logar
+            </p>
+            <p className="text-balance text-muted-foreground">
+              Atualmente só temos login pelo discord
             </p>
           </div>
           <div className="grid gap-4">
