@@ -5,10 +5,8 @@ import Link from "next/link";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { Speech, Skull, DoorClosed, Shield, Home } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 export function WebNav() {
-  const router = useRouter();
   async function handleSignOut() {
     await signOut({ callbackUrl: "/" });
   }
