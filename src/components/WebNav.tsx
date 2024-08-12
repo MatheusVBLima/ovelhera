@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { Speech, Skull, DoorClosed, Shield, Home } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
+import admins from "../../admins.json";
 
 export function WebNav() {
   async function handleSignOut() {
@@ -48,15 +49,17 @@ export function WebNav() {
       </Button>
       {session && (
         <>
-          <Button
-            className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
-            variant={"outline"}
-          >
-            <Link href="admin" className="flex items-center gap-2">
-              <span>ADMIN</span>
-              <Shield size={18} />
-            </Link>
-          </Button>
+          {admins.some((admin) => admin.name === session?.user?.name) && (
+            <Button
+              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+              variant={"outline"}
+            >
+              <Link href="admin" className="flex items-center gap-2">
+                <span>ADMIN</span>
+                <Shield size={18} />
+              </Link>
+            </Button>
+          )}
           <Button
             onClick={handleSignOut}
             variant={"outline"}
