@@ -23,7 +23,7 @@ export function MobileNav() {
     <nav className="xl:hidden">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500">
+          <Button className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500">
             <Menu />
           </Button>
         </DropdownMenuTrigger>
@@ -52,9 +52,10 @@ export function MobileNav() {
               </Link>
             </Button>
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            {session && (
-              <>
+
+          {session && (
+            <>
+              <DropdownMenuItem>
                 <Button
                   className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
                   variant={"outline"}
@@ -63,6 +64,8 @@ export function MobileNav() {
                     <span>ADMIN</span>
                   </Link>
                 </Button>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
                 <Button
                   onClick={handleSignOut}
                   variant={"outline"}
@@ -70,9 +73,9 @@ export function MobileNav() {
                 >
                   <span>SIGN OUT</span>
                 </Button>
-              </>
-            )}
-          </DropdownMenuItem>
+              </DropdownMenuItem>
+            </>
+          )}
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <ThemeSwitcher />
