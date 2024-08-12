@@ -10,8 +10,7 @@ import { useRouter } from "next/navigation";
 export function WebNav() {
   const router = useRouter();
   async function handleSignOut() {
-    await signOut({ redirect: false });
-    router.push("/");
+    await signOut({ callbackUrl: "/" });
   }
   const { data: session } = useSession();
   return (
