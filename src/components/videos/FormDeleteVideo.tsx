@@ -54,7 +54,7 @@ export function FormDeleteVideo() {
         name: session?.user?.name ?? "",
         action: "Deletou um vídeo",
         url: urlVideo,
-        date: new Date().toLocaleDateString("pt-BR"),
+        date: new Date().toLocaleString("pt-BR"),
       };
 
       await addVideoLog(logData);

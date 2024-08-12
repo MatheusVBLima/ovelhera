@@ -57,7 +57,7 @@ export function FormEditVideo() {
       name: session?.user?.name ?? "",
       action: "Editou um vídeo",
       url: values.url,
-      date: new Date().toLocaleDateString("pt-BR"),
+      date: new Date().toLocaleString("pt-BR"),
     };
 
     const id = values.id;
