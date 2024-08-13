@@ -34,33 +34,37 @@ export default function Manson() {
       {isOvelha && (
         <div className="flex flex-col items-center justify-center gap-4">
           <p className="text-3xl font-semibold">Ovelha</p>
-          <iframe
-            src="https://player.twitch.tv/?channel=ovelhera&parent=rastaflix.vercel.app"
-            allowFullScreen
-            scrolling="no"
-            className="h-[250px] w-[350px] lg:h-[400px] lg:w-[600px]"
-          ></iframe>
-          <iframe
-            id="chat_embed"
-            src="https://www.twitch.tv/embed/ovelhera/chat?parent=rastaflix.vercel.app"
-            className="h-[250px] w-[350px] lg:h-[400px] lg:w-[600px]"
-          ></iframe>
+          <div className="flex gap-1">
+            <iframe
+              src="https://player.twitch.tv/?channel=ovelhera&parent=rastaflix.vercel.app"
+              allowFullScreen
+              scrolling="no"
+              className="h-[250px] w-[350px] lg:h-[450px] lg:w-[700px]"
+            ></iframe>
+            <iframe
+              id="chat_embed"
+              src="https://www.twitch.tv/embed/ovelhera/chat?parent=rastaflix.vercel.app"
+              className="h-[250px] w-[150px] lg:h-[450px] lg:w-[400px]"
+            ></iframe>
+          </div>
         </div>
       )}
       {isCiro && (
         <div className="flex flex-col items-center justify-center gap-4">
           <p className="text-3xl font-semibold">Ciro</p>
-          <iframe
-            src="https://player.twitch.tv/?channel=ciromtv&parent=rastaflix.vercel.app"
-            allowFullScreen
-            scrolling="no"
-            className="h-[250px] w-[350px] lg:h-[400px] lg:w-[600px]"
-          ></iframe>
-          <iframe
-            id="chat_embed"
-            src="https://www.twitch.tv/embed/ciromtv/chat?parent=rastaflix.vercel.app"
-            className="h-[250px] w-[350px] lg:h-[400px] lg:w-[600px]"
-          ></iframe>
+          <div className="flex gap-1">
+            <iframe
+              src="https://player.twitch.tv/?channel=ciromtv&parent=rastaflix.vercel.app"
+              allowFullScreen
+              scrolling="no"
+              className="h-[250px] w-[350px] lg:h-[450px] lg:w-[700px]"
+            ></iframe>
+            <iframe
+              id="chat_embed"
+              src="https://www.twitch.tv/embed/ciromtv/chat?parent=rastaflix.vercel.app"
+              className="h-[250px] w-[150px] lg:h-[450px] lg:w-[400px]"
+            ></iframe>
+          </div>
         </div>
       )}
     </div>
