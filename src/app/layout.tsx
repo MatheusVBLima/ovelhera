@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/Theme-Provider";
 import { Header } from "@/components/Header";
 import SessionWrapper from "@/components/sessionWrapper/SessionWrapper";
 import { Toaster } from "@/components/ui/toaster";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,6 +41,7 @@ export default function RootLayout({
               <main>{children}</main>
               <Toaster />
             </div>
+            <SpeedInsights />
           </ThemeProvider>
         </body>
       </html>
