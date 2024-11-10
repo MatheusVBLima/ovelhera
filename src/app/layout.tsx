@@ -1,11 +1,11 @@
+import { Header } from "@/components/Header";
+import SessionWrapper from "@/components/sessionWrapper/SessionWrapper";
+import { ThemeProvider } from "@/components/Theme-Provider";
+import { Toaster } from "@/components/ui/toaster";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/Theme-Provider";
-import { Header } from "@/components/Header";
-import SessionWrapper from "@/components/sessionWrapper/SessionWrapper";
-import { Toaster } from "@/components/ui/toaster";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +25,7 @@ export default function RootLayout({
         <head>
           <link rel="icon" href="/maconha_2.png" sizes="32" />
           <meta
-            http-equiv="Permissions-Policy"
+            httpEquiv="Permissions-Policy"
             content="interest-cohort=()"
           ></meta>
         </head>

@@ -58,7 +58,7 @@ export async function updateEnemyStatus(
 
   const updatedEnemy = await prisma.enemy.update({
     where: { id: input.id },
-    data: { status: "vingado" },
+    data: { status: "vingado", id: input.id },
   });
 
   return updatedEnemy;

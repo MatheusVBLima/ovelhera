@@ -3,10 +3,10 @@ import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
-  CardDescription,
+  CardTitle
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,10 +19,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import fallbackImage from "../../public/ovelha.png";
 import { getVideos } from "../actions/videosActions";
 import { Skeleton } from "./ui/skeleton";
-import Link from "next/link";
 
 type Videos = {
   id: string;
@@ -38,6 +40,7 @@ export function Stories() {
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
+  const [failedThumbnails, setFailedThumbnails] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     async function fetchVideos() {
@@ -92,6 +95,7 @@ export function Stories() {
     );
   }
 
+
   return (
     <div className="container mt-8">
       <div className="flex flex-col items-end justify-between gap-4 text-center md:flex-row md:items-center">
@@ -134,7 +138,8 @@ export function Stories() {
       <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         {filteredData.map((item) => {
           const videoId = new URL(item.url).searchParams.get("v");
-          const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+          const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+
           return (
             <Card key={item.id} className="flex flex-col">
               <CardHeader>
@@ -142,13 +147,23 @@ export function Stories() {
                 <CardDescription>Vídeo de id {item.id}</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-1 items-end">
-                <iframe
-                  src={embedUrl}
-                  title={item.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  className="h-[300px] w-full"
-                  allowFullScreen
-                ></iframe>
+                <Link 
+                  href={item.url} 
+                  target="_blank"
+                  className="relative h-[300px] w-full overflow-hidden rounded-md"
+                >
+                  <Image
+                    loading="lazy"
+                    src={failedThumbnails.has(item.id) ? fallbackImage : thumbnailUrl}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    onError={() => {
+                      setFailedThumbnails(prev => new Set(Array.from(prev).concat(item.id)));
+                    }}
+                  />
+                </Link>
               </CardContent>
               <CardFooter className="flex gap-4">
                 {item.tags.map((tag, index) => (
