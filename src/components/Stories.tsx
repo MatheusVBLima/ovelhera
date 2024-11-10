@@ -135,45 +135,55 @@ export function Stories() {
         </Select>
       </div>
 
-      <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {filteredData.map((item) => {
-          const videoId = new URL(item.url).searchParams.get("v");
-          const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+        {filteredData.length === 0 ? (
+          <div className="flex items-center justify-center mt-14">
+            <p className="text-center text-2xl text-muted-foreground font-bold ">
+              Nenhuma história encontrada com essa tag.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {filteredData.map((item) => {
+              const videoId = new URL(item.url).searchParams.get("v");
+            const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+            console.log(filteredData.length);
 
-          return (
-            <Card key={item.id} className="flex flex-col">
-              <CardHeader>
-                <CardTitle>{item.title}</CardTitle>
-                <CardDescription>Vídeo de id {item.id}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-1 items-end">
-                <Link 
-                  href={item.url} 
-                  target="_blank"
-                  className="relative h-[300px] w-full overflow-hidden rounded-md"
-                >
-                  <Image
-                    loading="lazy"
-                    src={failedThumbnails.has(item.id) ? fallbackImage : thumbnailUrl}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition-transform hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    onError={() => {
-                      setFailedThumbnails(prev => new Set(Array.from(prev).concat(item.id)));
-                    }}
-                  />
-                </Link>
-              </CardContent>
-              <CardFooter className="flex gap-4">
-                {item.tags.map((tag, index) => (
-                  <Badge key={index}>{tag.name}</Badge>
-                ))}
-              </CardFooter>
-            </Card>
-          );
-        })}
+            return (
+              <Card key={item.id} className="flex flex-col">
+                <CardHeader>
+                  <CardTitle>{item.title}</CardTitle>
+                  <CardDescription>Vídeo de id {item.id}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-1 items-end">
+                  <Link 
+                    href={item.url} 
+                    target="_blank"
+                    className="relative h-[300px] w-full overflow-hidden rounded-md"
+                  >
+                    <Image
+                      loading="lazy"
+                      src={failedThumbnails.has(item.id) ? fallbackImage : thumbnailUrl}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      onError={() => {
+                        setFailedThumbnails(prev => new Set(Array.from(prev).concat(item.id)));
+                      }}
+                    />
+                  </Link>
+                </CardContent>
+                <CardFooter className="flex gap-4">
+                  {item.tags.map((tag, index) => (
+                    <Badge key={index}>{tag.name}</Badge>
+                  ))}
+                </CardFooter>
+              </Card>
+              );
+            })}
+          </div>
+        )}
       </div>
-    </div>
+   
   );
 }
