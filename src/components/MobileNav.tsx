@@ -1,5 +1,10 @@
 "use client";
-import React from "react";
+import { Menu } from "lucide-react";
+import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
+import admins from "../../admins.json";
+import { ThemeSwitcher } from "./ThemeSwitcher";
+import { Button } from "./ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,12 +13,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import Link from "next/link";
-import { ThemeSwitcher } from "./ThemeSwitcher";
-import { Button } from "./ui/button";
-import { Menu } from "lucide-react";
-import { signOut, useSession } from "next-auth/react";
-import admins from "../../admins.json";
 
 export function MobileNav() {
   async function handleSignOut() {
@@ -37,6 +36,17 @@ export function MobileNav() {
               asChild
               variant={"outline"}
             >
+              <Link href={"/"} className="flex items-center gap-2">
+                <span>HOME</span>
+              </Link>
+            </Button>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Button
+              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+              asChild
+              variant={"outline"}
+            >
               <Link href={"/historias"} className="flex items-center gap-2">
                 <span>HISTÓRIAS</span>
               </Link>
@@ -53,6 +63,19 @@ export function MobileNav() {
               </Link>
             </Button>
           </DropdownMenuItem>
+          {!session && (
+          <DropdownMenuItem>
+          <Button
+              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+              variant={"outline"}
+            >
+              <Link href="login" className="flex items-center gap-2">
+                <span>ADMIN</span>
+                
+            </Link>
+          </Button>
+            </DropdownMenuItem>
+          )}
 
           {session && (
             <>

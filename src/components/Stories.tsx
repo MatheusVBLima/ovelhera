@@ -175,7 +175,7 @@ export function Stories() {
                 </CardContent>
                 <CardFooter className="flex gap-4">
                   {item.tags.map((tag, index) => (
-                    <Badge key={index}>{tag.name}</Badge>
+                    <Badge key={index} variant="rasta">{tag.name}</Badge>
                   ))}
                 </CardFooter>
               </Card>

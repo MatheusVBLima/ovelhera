@@ -1,20 +1,23 @@
 "use client";
-import React from "react";
-import { Button } from "./ui/button";
-import Link from "next/link";
-import { ThemeSwitcher } from "./ThemeSwitcher";
-import { Speech, Skull, DoorClosed, Shield, Home } from "lucide-react";
+import { DoorClosed, Home, Shield, Skull, Speech } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
+
 import admins from "../../admins.json";
+import { ThemeSwitcher } from "./ThemeSwitcher";
+import { Button } from "./ui/button";
 
 export function WebNav() {
+
+  
   async function handleSignOut() {
     await signOut({ callbackUrl: "/" });
   }
+
+
   const { data: session } = useSession();
   return (
     <nav className="hidden items-center gap-4 xl:flex">
-      {!session && (
         <Button
           className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
           asChild
@@ -25,7 +28,7 @@ export function WebNav() {
             <Home size={18} />
           </Link>
         </Button>
-      )}
+      
       <Button
         className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
         asChild
@@ -47,6 +50,17 @@ export function WebNav() {
           <Skull size={18} />
         </Link>
       </Button>
+      {!session && (
+        <Button
+          className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+              variant={"outline"}
+            >
+              <Link href="login" className="flex items-center gap-2">
+                <span>ADMIN</span>
+                <Shield size={18} />
+        </Link>
+        </Button>
+      )}
       {session && (
         <>
           {admins.some((admin) => admin.name === session?.user?.name) && (
