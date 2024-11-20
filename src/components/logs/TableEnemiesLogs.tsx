@@ -2,23 +2,18 @@
 import {
   Table,
   TableBody,
-  TableCell,
-  TableFooter,
-  TableHead,
+  TableCell, TableHead,
   TableHeader,
-  TableRow,
+  TableRow
 } from "@/components/ui/table";
 
+import { useEffect, useState } from "react";
+import { getVengeanceLogs } from "../../actions/logsActions";
 import { Badge } from "../ui/badge";
 import {
   Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationNext,
-  PaginationPrevious,
+  PaginationContent
 } from "../ui/pagination";
-import { getVengeanceLogs } from "../../actions/logsActions";
-import { useEffect, useState } from "react";
 
 type EnemyLogs = {
   name: string;
@@ -56,7 +51,7 @@ export function EnemiesLogs() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {logs.map((log, index) => (
+              {logs.toReversed().map((log, index) => (
                 <TableRow key={index}>
                   <TableCell className="font-medium">{log.name}</TableCell>
                   {log.action === "Deletou um vídeo" ? (
@@ -76,20 +71,6 @@ export function EnemiesLogs() {
                 </TableRow>
               ))}
             </TableBody>
-            {/* <TableFooter>
-              <TableRow>
-                <TableCell colSpan={2}>
-                  <PaginationItem>
-                    <PaginationPrevious />
-                  </PaginationItem>
-                </TableCell>
-                <TableCell colSpan={2} className="text-right">
-                  <PaginationItem>
-                    <PaginationNext />
-                  </PaginationItem>
-                </TableCell>
-              </TableRow>
-            </TableFooter> */}
           </Table>
         </PaginationContent>
       </Pagination>

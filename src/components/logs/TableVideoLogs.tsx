@@ -2,23 +2,18 @@
 import {
   Table,
   TableBody,
-  TableCell,
-  TableFooter,
-  TableHead,
+  TableCell, TableHead,
   TableHeader,
-  TableRow,
+  TableRow
 } from "@/components/ui/table";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getVideoLogs } from "../../actions/logsActions";
 import { Badge } from "../ui/badge";
 import {
   Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationNext,
-  PaginationPrevious,
+  PaginationContent
 } from "../ui/pagination";
-import { getVideoLogs } from "../../actions/logsActions";
-import { useEffect, useState } from "react";
 
 type VideoLogs = {
   name: string;
@@ -56,7 +51,7 @@ export function FormLogs() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {logs.map((log, index) => (
+              {logs.toReversed().map((log, index) => (
                 <TableRow key={index}>
                   <TableCell className="font-medium">{log.name}</TableCell>
                   {log.action === "Deletou um vídeo" ? (
