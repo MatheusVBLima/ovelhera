@@ -23,7 +23,7 @@ export function MobileNav() {
     <nav className="xl:hidden">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500">
+          <Button className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500" variant={"outline"}>
             <Menu />
           </Button>
         </DropdownMenuTrigger>
