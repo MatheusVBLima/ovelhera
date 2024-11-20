@@ -11,7 +11,7 @@ export function Header() {
   const user = data?.user?.name;
   
   return (
-    <div className="sticky top-0 z-10 bg-background">
+    <div className="sticky top-0 z-50 bg-background">
       <header className="container flex items-center justify-between py-6">
         <div className="flex items-center gap-6">
           <Link href={"/"}>
