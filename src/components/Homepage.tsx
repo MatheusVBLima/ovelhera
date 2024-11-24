@@ -25,7 +25,6 @@ export function Homepage() {
             <Badge variant="rasta">Truman</Badge>
             <Badge variant="rasta">Barão Vermelho</Badge>
             <Badge variant="rasta">Rainhu</Badge>
-
           </div>
         </div>
       </div>
