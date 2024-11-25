@@ -32,6 +32,10 @@ export function Homepage() {
             <Badge variant="rasta">Lázaro</Badge>
             <Badge variant="rasta">Geladeira de pobre</Badge>
             <Badge variant="rasta">Chapeiro</Badge>
+            <Badge variant="rasta">Gonorasta</Badge>
+            <Badge variant="rasta">Voyeur</Badge>
+            <Badge variant="rasta">Tio Paulo</Badge>
+            <Badge variant="rasta">Tributera</Badge>
           </div>
         </div>
       </div>
