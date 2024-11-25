@@ -15,7 +15,7 @@ export function Homepage() {
           <p className="text-center text-lg">
             Também conhecido como
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 items-center justify-center">
             <Badge variant="rasta">PK</Badge>
             <Badge variant="rasta">Charles Manson</Badge>
             <Badge variant="rasta">Givaldo</Badge>

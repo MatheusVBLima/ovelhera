@@ -99,18 +99,18 @@ export function Stories() {
   return (
     <div className="container mt-8">
       <div className="flex flex-col items-end justify-between gap-4 text-center md:flex-row md:items-center">
-        <div className="flex items-center gap-2 text-center">
+        <div className="w-full flex flex-col md:flex-row items-center gap-4 text-center">
           <Label htmlFor="input">Pesquise uma história pelo nome</Label>
           <Input
             placeholder="Ex: ovelha leva gank ... "
             id="input"
-            className="w-[200px] md:w-[300px]"
+            className="md:w-[300px]"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
         <Select onValueChange={(value) => setSelectedCategory(value)}>
-          <SelectTrigger className="w-[300px]">
+          <SelectTrigger className="md:w-[300px]">
             <SelectValue placeholder="Filtre por categoria de vídeo" />
           </SelectTrigger>
           <SelectContent>
