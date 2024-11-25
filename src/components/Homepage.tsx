@@ -25,6 +25,13 @@ export function Homepage() {
             <Badge variant="rasta">Truman</Badge>
             <Badge variant="rasta">Barão Vermelho</Badge>
             <Badge variant="rasta">Rainhu</Badge>
+            <Badge variant="rasta">Arame liso</Badge>
+            <Badge variant="rasta">Professor maconha</Badge>
+            <Badge variant="rasta">Sazon</Badge>
+            <Badge variant="rasta">MVP</Badge>
+            <Badge variant="rasta">Lázaro</Badge>
+            <Badge variant="rasta">Geladeira de pobre</Badge>
+            <Badge variant="rasta">Chapeiro</Badge>
           </div>
         </div>
       </div>
