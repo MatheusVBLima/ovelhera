@@ -15,6 +15,8 @@ import { EnemiesLogs } from "./logs/TableEnemiesLogs";
 import { TableSongsLogs } from "./logs/TableSongsLogs";
 import { FormLogs } from "./logs/TableVideoLogs";
 import { FormAddNewSong } from "./songs/FormAddNewSong";
+import { FormDeleteSong } from "./songs/FormDeleteSong";
+import { FormEditSong } from "./songs/FormEditSong";
 import { FormAddNewNameToVengeance } from "./vengeance/FormAddNewNameToVengeance";
 import { FormAvengeEnemy } from "./vengeance/FormAvengeEnemy";
 import { FormAddNewVideo } from "./videos/FormAddNewVideo";
@@ -33,6 +35,8 @@ export function AdminPanel() {
   const [isEditVideo, setIsEditVideo] = useState(false);
   const [isAddNewSong, setIsAddNewSong] = useState(false);
   const [isSongLogs, setIsSongLogs] = useState(false);
+  const [isEditSong, setIsEditSong] = useState(false);
+  const [isDeleteSong, setIsDeleteSong] = useState(false);
 
   function handleDeleteVideo() {
     setIsAddNewVideo(false);
@@ -44,6 +48,8 @@ export function AdminPanel() {
     setIsEditVideo(false);
     setIsAddNewSong(false);
     setIsSongLogs(false);
+    setIsEditSong(false);
+    setIsDeleteSong(false);
   }
 
   function handleAddNewVideo() {
@@ -56,6 +62,8 @@ export function AdminPanel() {
     setIsEditVideo(false);
     setIsAddNewSong(false);
     setIsSongLogs(false);
+    setIsEditSong(false);
+    setIsDeleteSong(false);
   }
 
   function handleEditVideo() {
@@ -68,6 +76,8 @@ export function AdminPanel() {
     setIsEditVideo(true);
     setIsAddNewSong(false);
     setIsSongLogs(false);
+    setIsEditSong(false);
+    setIsDeleteSong(false);
   }
 
   function handleLogs() {
@@ -80,6 +90,8 @@ export function AdminPanel() {
     setIsEditVideo(false);
     setIsAddNewSong(false);
     setIsSongLogs(false);
+    setIsEditSong(false);
+    setIsDeleteSong(false);
   }
 
   function handleIsSongLogs() {
@@ -92,6 +104,8 @@ export function AdminPanel() {
     setIsEditVideo(false);
     setIsAddNewSong(false);
     setIsSongLogs(true);
+    setIsEditSong(false);
+    setIsDeleteSong(false);
   }
 
   function handleVengeance() {
@@ -104,6 +118,8 @@ export function AdminPanel() {
     setIsEditVideo(false);
     setIsAddNewSong(false);
     setIsSongLogs(false);
+    setIsEditSong(false);
+    setIsDeleteSong(false);
   }
 
   function handleAddVengeance() {
@@ -116,6 +132,8 @@ export function AdminPanel() {
     setIsEditVideo(false);
     setIsAddNewSong(false);
     setIsSongLogs(false);
+    setIsEditSong(false);
+    setIsDeleteSong(false);
   }
 
   function handleIsVengeanceLogs() {
@@ -128,6 +146,8 @@ export function AdminPanel() {
     setIsEditVideo(false);
     setIsAddNewSong(false);
     setIsSongLogs(false);
+    setIsEditSong(false);
+    setIsDeleteSong(false);
   }
 
   function handleAddNewSong() {
@@ -140,9 +160,37 @@ export function AdminPanel() {
     setIsEditVideo(false);
     setIsAddNewSong(true);
     setIsSongLogs(false);
+    setIsEditSong(false);
+    setIsDeleteSong(false);
   }
 
+  function handleEditSong() {
+    setIsAddNewVideo(false);
+    setIsDeleteVideo(false);
+    setIsLogs(false);
+    setIsVengeance(false);
+    setIsAddVengeance(false);
+    setIsVengeanceLogs(false);
+    setIsEditVideo(false);
+    setIsAddNewSong(false);
+    setIsSongLogs(false);
+    setIsEditSong(true);
+    setIsDeleteSong(false);
+  }
 
+  function handleDeleteSong() {
+    setIsAddNewVideo(false);
+    setIsDeleteVideo(false);
+    setIsLogs(false);
+    setIsVengeance(false);
+    setIsAddVengeance(false);
+    setIsVengeanceLogs(false);
+    setIsEditVideo(false);
+    setIsAddNewSong(false);
+    setIsSongLogs(false);
+    setIsEditSong(false);
+    setIsDeleteSong(true);
+  }
 
   return (
     <div className="container mt-8">
@@ -204,6 +252,24 @@ export function AdminPanel() {
                             className="w-full"
                           >
                             Nova Música
+                          </Button>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink>
+                          <Button
+                            onClick={handleEditSong}
+                            variant={"outline"}
+                            className="w-full"
+                          >
+                            Editar Música
+                          </Button>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink>
+                          <Button
+                            onClick={handleDeleteSong}
+                            variant={"destructive"}
+                            className="w-full"
+                          >
+                            Deletar Música
                           </Button>
                         </NavigationMenuLink>
                       </ul>
@@ -281,7 +347,9 @@ export function AdminPanel() {
           {isVengeanceLogs && <EnemiesLogs />}
           {isEditVideo && <FormEditVideo />}
           {isAddNewSong && <FormAddNewSong />}
-          {isSongLogs && <TableSongsLogs />}  
+          {isSongLogs && <TableSongsLogs />}
+          {isEditSong && <FormEditSong />}
+          {isDeleteSong && <FormDeleteSong />}
         </>
       )}
     </div>
