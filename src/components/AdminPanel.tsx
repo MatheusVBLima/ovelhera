@@ -12,6 +12,7 @@ import {
 import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { EnemiesLogs } from "./logs/TableEnemiesLogs";
+import { TableSongsLogs } from "./logs/TableSongsLogs";
 import { FormLogs } from "./logs/TableVideoLogs";
 import { FormAddNewSong } from "./songs/FormAddNewSong";
 import { FormAddNewNameToVengeance } from "./vengeance/FormAddNewNameToVengeance";
@@ -280,6 +281,7 @@ export function AdminPanel() {
           {isVengeanceLogs && <EnemiesLogs />}
           {isEditVideo && <FormEditVideo />}
           {isAddNewSong && <FormAddNewSong />}
+          {isSongLogs && <TableSongsLogs />}  
         </>
       )}
     </div>
