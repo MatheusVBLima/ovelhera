@@ -57,13 +57,13 @@ export function EnemiesLogs() {
             <TableHeader>
               <TableRow>
                 <TableHead>Nome</TableHead>
-                <TableHead className="w-[200px]">Ação</TableHead>
+                <TableHead>Ação</TableHead>
                 <TableHead>Inimigo</TableHead>
                 <TableHead>Data</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {logsPaginados.toReversed().map((log, index) => (
+              {logsPaginados.map((log, index) => (
                 <TableRow key={index}>
                   <TableCell className="font-medium">{log.name}</TableCell>
                   {log.action === "Deletou um vídeo" ? (

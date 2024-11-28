@@ -62,7 +62,7 @@ export function TableSongsLogs() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {logsPaginados.toReversed().map((log, index) => (
+              {logsPaginados.map((log, index) => (
                 <TableRow key={index}>
                   <TableCell className="font-medium">{log.name}</TableCell>
                   {log.action === "Deletou uma música" ? (
