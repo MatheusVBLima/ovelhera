@@ -1,12 +1,9 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
+  CardDescription, CardHeader,
   CardTitle
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -109,6 +106,8 @@ export function Songs() {
         ) : (
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
             {filteredData.map((item) => {
+                 const videoId = new URL(item.url).searchParams.get("v");
+                 const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
             return (
               <Card key={item.id} className="flex flex-col">
                 <CardHeader>
@@ -123,7 +122,7 @@ export function Songs() {
                   >
                     <Image
                       loading="lazy"
-                      src={fallbackImage}
+                      src={failedThumbnails.has(item.id) ? fallbackImage : thumbnailUrl}
                       alt={item.title}
                       fill
                       className="object-cover transition-transform hover:scale-105"
@@ -134,9 +133,6 @@ export function Songs() {
                     />
                   </Link>
                 </CardContent>
-                <CardFooter className="flex gap-4">
-                  <Badge variant="rasta">{item.title}</Badge>
-                </CardFooter>
               </Card>
               );
             })}
