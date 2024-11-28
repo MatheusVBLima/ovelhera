@@ -110,3 +110,13 @@ model LogsVengeance {
 
   @@map("logsvengeance")
 }
+
+model LogsSong {
+  id     String @id @default(cuid())
+  name   String
+  action String
+  url    String
+  date   String
+
+  @@map("logssong")
+}

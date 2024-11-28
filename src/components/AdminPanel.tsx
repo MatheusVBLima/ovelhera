@@ -31,6 +31,7 @@ export function AdminPanel() {
   const [isVengeanceLogs, setIsVengeanceLogs] = useState(false);
   const [isEditVideo, setIsEditVideo] = useState(false);
   const [isAddNewSong, setIsAddNewSong] = useState(false);
+  const [isSongLogs, setIsSongLogs] = useState(false);
 
   function handleDeleteVideo() {
     setIsAddNewVideo(false);
@@ -41,6 +42,7 @@ export function AdminPanel() {
     setIsVengeanceLogs(false);
     setIsEditVideo(false);
     setIsAddNewSong(false);
+    setIsSongLogs(false);
   }
 
   function handleAddNewVideo() {
@@ -52,6 +54,7 @@ export function AdminPanel() {
     setIsVengeanceLogs(false);
     setIsEditVideo(false);
     setIsAddNewSong(false);
+    setIsSongLogs(false);
   }
 
   function handleEditVideo() {
@@ -63,6 +66,7 @@ export function AdminPanel() {
     setIsVengeanceLogs(false);
     setIsEditVideo(true);
     setIsAddNewSong(false);
+    setIsSongLogs(false);
   }
 
   function handleLogs() {
@@ -74,6 +78,19 @@ export function AdminPanel() {
     setIsVengeanceLogs(false);
     setIsEditVideo(false);
     setIsAddNewSong(false);
+    setIsSongLogs(false);
+  }
+
+  function handleIsSongLogs() {
+    setIsAddNewVideo(false);
+    setIsDeleteVideo(false);
+    setIsLogs(false);
+    setIsVengeance(false);
+    setIsAddVengeance(false);
+    setIsVengeanceLogs(false);
+    setIsEditVideo(false);
+    setIsAddNewSong(false);
+    setIsSongLogs(true);
   }
 
   function handleVengeance() {
@@ -85,6 +102,7 @@ export function AdminPanel() {
     setIsVengeanceLogs(false);
     setIsEditVideo(false);
     setIsAddNewSong(false);
+    setIsSongLogs(false);
   }
 
   function handleAddVengeance() {
@@ -96,6 +114,7 @@ export function AdminPanel() {
     setIsVengeanceLogs(false);
     setIsEditVideo(false);
     setIsAddNewSong(false);
+    setIsSongLogs(false);
   }
 
   function handleIsVengeanceLogs() {
@@ -107,6 +126,7 @@ export function AdminPanel() {
     setIsVengeanceLogs(true);
     setIsEditVideo(false);
     setIsAddNewSong(false);
+    setIsSongLogs(false);
   }
 
   function handleAddNewSong() {
@@ -118,7 +138,10 @@ export function AdminPanel() {
     setIsVengeanceLogs(false);
     setIsEditVideo(false);
     setIsAddNewSong(true);
+    setIsSongLogs(false);
   }
+
+
 
   return (
     <div className="container mt-8">
@@ -198,6 +221,16 @@ export function AdminPanel() {
                             Ver Logs de Vídeos
                           </Button>
                         </NavigationMenuLink>
+                        <NavigationMenuLink>
+                          <Button
+                            onClick={handleIsSongLogs}
+                            variant={"outline"}
+                            className="w-full"
+                          >
+                            Ver Logs de Músicas
+                          </Button>
+                        </NavigationMenuLink>
+
                         <NavigationMenuLink>
                           <Button
                             onClick={handleIsVengeanceLogs}

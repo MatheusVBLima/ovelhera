@@ -22,7 +22,7 @@ type Songs = {
 };
 
 export function Songs() {
-    const [songs, setSongs] = useState<Songs[]>([]);
+  const [songs, setSongs] = useState<Songs[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");

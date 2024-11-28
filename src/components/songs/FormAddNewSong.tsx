@@ -2,13 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
@@ -17,8 +17,10 @@ import { FileVideo } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { addSongLog } from "../../actions/logsActions";
 import { addSong } from "../../actions/songsActions";
-/* import { addSongLog } from "../../actions/logsActions"; */
+
+
 
 const formSchema = z.object({
   title: z
@@ -41,22 +43,22 @@ export function FormAddNewSong() {
   });
 
   async function handleOnSubmit(values: z.infer<typeof formSchema>) {
-  /*   const logData = {
+  const logData = {
       name: session?.user?.name ?? "",
       action: "Adicionou uma música",
       url: values.url,
       date: new Date().toLocaleString("pt-BR"),
-    }; */
+    }; 
 
     const songData = {
       title: values.title,
       url: values.url,
-        };
+      };
 
     try {
       await addSong(songData);
       form.reset();
-     /*  await addSongLog(logData); */
+      await addSongLog(logData); 
       toast({
         description: "Música " + values.title + " adicionada com sucesso.",
         className: "bg-green-800",
