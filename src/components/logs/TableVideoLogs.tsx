@@ -41,7 +41,7 @@ export function FormLogs() {
       </h1>
       <Pagination>
         <PaginationContent>
-          <Table className="mt-10 lg:w-[900px]">
+          <Table className="mt-10 lg:w-[1100px]">
             <TableHeader>
               <TableRow>
                 <TableHead>Nome</TableHead>

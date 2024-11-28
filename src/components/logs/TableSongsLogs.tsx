@@ -54,11 +54,11 @@ export function TableSongsLogs() {
               {logs.toReversed().map((log, index) => (
                 <TableRow key={index}>
                   <TableCell className="font-medium">{log.name}</TableCell>
-                  {log.action === "Deletou um vídeo" ? (
+                  {log.action === "Deletou uma música" ? (
                     <TableCell>
                       <Badge variant="destructive">{log.action}</Badge>
                     </TableCell>
-                  ) : log.action === "Adicionou um vídeo" ? (
+                  ) : log.action === "Adicionou uma música" ? (
                     <TableCell>
                       <Badge variant={"outline"} className="bg-green-800">
                         {log.action}
