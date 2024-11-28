@@ -53,7 +53,7 @@ export function EnemiesLogs() {
       <h1 className="mt-16 text-center font-mono text-2xl font-bold">
         Tabela com as ações realizadas pelos admins
       </h1>
-          <Table className="mt-10 lg:w-[1100px]">
+          <Table className="mt-10">
             <TableHeader>
               <TableRow>
                 <TableHead>Nome</TableHead>
