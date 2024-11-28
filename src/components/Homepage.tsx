@@ -37,6 +37,7 @@ export function Homepage() {
             <Badge variant="rasta">Tio Paulo</Badge>
             <Badge variant="rasta">Tributera</Badge>
             <Badge variant="rasta">Kiko</Badge>
+            <Badge variant="rasta">Branco</Badge>
             <Badge variant="rasta">Múmia triste</Badge>
             <Badge variant="rasta">Dono da bola</Badge>
           </div>
