@@ -1,5 +1,5 @@
 "use client";
-import { DoorClosed, Home, Music, Shield, Skull, Speech } from "lucide-react";
+import { DoorClosed, Gamepad, Home, Music, Shield, Skull, Speech } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
@@ -61,6 +61,18 @@ export function WebNav() {
           <Skull size={18} />
         </Link>
       </Button>
+      
+      <Button
+        className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+        asChild
+        variant={"outline"}
+      >
+        <Link href={"/ovelhera-dle"} className="flex items-center gap-2">
+          <span>OVELHERA DLE</span>
+          <Gamepad size={18} />
+        </Link>
+      </Button>
+
       {!session && (
         <Button
           className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"

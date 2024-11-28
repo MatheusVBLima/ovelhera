@@ -32,7 +32,7 @@ export function MobileNav() {
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <Button
-              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500 w-full"
               asChild
               variant={"outline"}
             >
@@ -43,7 +43,7 @@ export function MobileNav() {
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Button
-              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500 w-full"
               asChild
               variant={"outline"}
             >
@@ -54,7 +54,7 @@ export function MobileNav() {
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Button
-              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500 w-full"
               asChild
               variant={"outline"}
             >
@@ -66,7 +66,7 @@ export function MobileNav() {
 
           <DropdownMenuItem>
             <Button
-              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500 w-full"
               asChild
               variant={"outline"}
             >
@@ -75,10 +75,21 @@ export function MobileNav() {
               </Link>
             </Button>
           </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Button
+              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500 w-full"
+              asChild
+              variant={"outline"}
+            >
+              <Link href={"/ovelhera-dle"} className="flex items-center gap-2">
+                <span>OVELHERA DLE</span>
+              </Link>
+            </Button>
+          </DropdownMenuItem>
           {!session && (
           <DropdownMenuItem>
           <Button
-              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500 w-full"
               variant={"outline"}
             >
               <Link href="login" className="flex items-center gap-2">
@@ -94,7 +105,7 @@ export function MobileNav() {
               {admins.some((admin) => admin.name === session?.user?.name) && (
                 <DropdownMenuItem>
                   <Button
-                    className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+                    className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500 w-full"
                     variant={"outline"}
                   >
                     <Link href="admin" className="flex items-center gap-2">
@@ -107,7 +118,7 @@ export function MobileNav() {
                 <Button
                   onClick={handleSignOut}
                   variant={"outline"}
-                  className="flex items-center gap-2 border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+                  className="flex items-center gap-2 border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500 w-full"
                 >
                   <span>SIGN OUT</span>
                 </Button>
