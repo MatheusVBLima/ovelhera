@@ -88,7 +88,7 @@ export function Songs() {
         <div className="w-full flex flex-col md:flex-row items-center gap-4 text-center">
           <Label htmlFor="input">Pesquise uma música pelo nome</Label>
           <Input
-            placeholder="Ex: ovelha leva gank ... "
+            placeholder="Ex: Manson Manson"
             id="input"
             className="md:w-[300px]"
             value={searchTerm}
