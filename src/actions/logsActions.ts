@@ -37,7 +37,11 @@ const logsSongSchema = z.object({
 export async function getVengeanceLogs(): Promise<
   z.infer<typeof logsVengeanceSchema>[]
 > {
-  const logs = await prisma.logsVengeance.findMany();
+  const logs = await prisma.logsVengeance.findMany({
+    orderBy: {
+      date: 'desc'
+    }
+  });
   return logs;
 }
 
@@ -58,7 +62,11 @@ export async function addVengeanceLog(
 export async function getVideoLogs(): Promise<
   z.infer<typeof getLogsVideoSchema>[]
 > {
-  const logs = await prisma.logsVideo.findMany();
+  const logs = await prisma.logsVideo.findMany({
+    orderBy: {
+      date: 'desc'
+    }
+  });
   return logs;
 }
 
@@ -84,7 +92,11 @@ export async function addSongLog(input: z.infer<typeof logsSongSchema>) {
 export async function getSongLogs(): Promise<
   z.infer<typeof logsSongSchema>[]
 > {
-  const logs = await prisma.logsSong.findMany();
+  const logs = await prisma.logsSong.findMany({
+    orderBy: {
+      date: 'desc'
+    }
+  });
   return logs;
 }
 

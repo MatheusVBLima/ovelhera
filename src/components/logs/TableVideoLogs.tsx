@@ -30,18 +30,13 @@ export function FormLogs() {
   const [logs, setLogs] = useState<VideoLogs[]>([]);
   const ITENS_POR_PAGINA = 10
   const [paginaAtual, setPaginaAtual] = useState(1)
-  
-  // Ordenar os logs por data em ordem decrescente
-  const logsSorted = [...logs].sort((a, b) => 
-    new Date(b.date).getTime() - new Date(a.date).getTime()
-  )
-  
-  const totalPaginas = Math.ceil(logsSorted.length / ITENS_POR_PAGINA)
+  const totalPaginas = Math.ceil(logs.length / ITENS_POR_PAGINA)
   const indiceInicial = (paginaAtual - 1) * ITENS_POR_PAGINA
-  const logsPaginados = logsSorted.slice(
+  const logsPaginados = logs.slice(
       indiceInicial,
       indiceInicial + ITENS_POR_PAGINA
   )
+
 
   useEffect(() => {
     async function fetchLogs() {
