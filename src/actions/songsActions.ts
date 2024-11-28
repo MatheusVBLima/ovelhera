@@ -42,7 +42,7 @@ export async function deleteSong(id: string) {
   return song;
 }
 
-export async function updateVideo(
+export async function updateSong(
   id: string,
   input: z.infer<typeof songSchema>,
 ) {
