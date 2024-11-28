@@ -21,7 +21,7 @@ import { addSongLog } from "../../actions/logsActions";
 import { updateSong } from "../../actions/songsActions";
 
 const formSchema = z.object({
-  id: z.string(),
+  id: z.string().min(1, "O id da música é obrigatório"),
   title: z
     .string()
     .min(2, "O título da música deve conter pelo menos 2 caracteres")

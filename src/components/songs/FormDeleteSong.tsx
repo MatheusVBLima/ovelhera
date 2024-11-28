@@ -21,7 +21,7 @@ import { addSongLog } from "../../actions/logsActions";
 import { deleteSong, getSongById } from "../../actions/songsActions";
 
 const formSchema = z.object({
-  song_id: z.string().min(1, "O campo é obrigatório"),
+  song_id: z.string().min(1, "O id da música é obrigatório"),
 });
 
 export function FormDeleteSong() {
