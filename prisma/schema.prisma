@@ -67,6 +67,14 @@ model Video {
   @@map("videos")
 }
 
+model Song {
+  id    String @id @default(cuid())
+  title String
+  url   String
+
+  @@map("songs")
+}
+
 model Tag {
   id     String  @id @default(cuid())
   name   String

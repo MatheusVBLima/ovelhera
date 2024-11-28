@@ -1,14 +1,6 @@
 "use client";
-import { useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { FormAddNewVideo } from "./videos/FormAddNewVideo";
-import { FormEditVideo } from "./videos/FormEditVideo";
-import { FormDeleteVideo } from "./videos/FormDeleteVideo";
-import { FormLogs } from "./logs/TableVideoLogs";
-import { FormAvengeEnemy } from "./vengeance/FormAvengeEnemy";
-import { FormAddNewNameToVengeance } from "./vengeance/FormAddNewNameToVengeance";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -17,7 +9,16 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { useSession } from "next-auth/react";
+import { useState } from "react";
 import { EnemiesLogs } from "./logs/TableEnemiesLogs";
+import { FormLogs } from "./logs/TableVideoLogs";
+import { FormAddNewSong } from "./songs/FormAddNewSong";
+import { FormAddNewNameToVengeance } from "./vengeance/FormAddNewNameToVengeance";
+import { FormAvengeEnemy } from "./vengeance/FormAvengeEnemy";
+import { FormAddNewVideo } from "./videos/FormAddNewVideo";
+import { FormDeleteVideo } from "./videos/FormDeleteVideo";
+import { FormEditVideo } from "./videos/FormEditVideo";
 
 export function AdminPanel() {
   const { data: session } = useSession();
@@ -29,6 +30,7 @@ export function AdminPanel() {
   const [isAddVengeance, setIsAddVengeance] = useState(false);
   const [isVengeanceLogs, setIsVengeanceLogs] = useState(false);
   const [isEditVideo, setIsEditVideo] = useState(false);
+  const [isAddNewSong, setIsAddNewSong] = useState(false);
 
   function handleDeleteVideo() {
     setIsAddNewVideo(false);
@@ -38,6 +40,7 @@ export function AdminPanel() {
     setIsAddVengeance(false);
     setIsVengeanceLogs(false);
     setIsEditVideo(false);
+    setIsAddNewSong(false);
   }
 
   function handleAddNewVideo() {
@@ -48,6 +51,7 @@ export function AdminPanel() {
     setIsAddVengeance(false);
     setIsVengeanceLogs(false);
     setIsEditVideo(false);
+    setIsAddNewSong(false);
   }
 
   function handleEditVideo() {
@@ -58,6 +62,7 @@ export function AdminPanel() {
     setIsAddVengeance(false);
     setIsVengeanceLogs(false);
     setIsEditVideo(true);
+    setIsAddNewSong(false);
   }
 
   function handleLogs() {
@@ -68,6 +73,7 @@ export function AdminPanel() {
     setIsAddVengeance(false);
     setIsVengeanceLogs(false);
     setIsEditVideo(false);
+    setIsAddNewSong(false);
   }
 
   function handleVengeance() {
@@ -78,6 +84,7 @@ export function AdminPanel() {
     setIsAddVengeance(false);
     setIsVengeanceLogs(false);
     setIsEditVideo(false);
+    setIsAddNewSong(false);
   }
 
   function handleAddVengeance() {
@@ -88,6 +95,7 @@ export function AdminPanel() {
     setIsAddVengeance(true);
     setIsVengeanceLogs(false);
     setIsEditVideo(false);
+    setIsAddNewSong(false);
   }
 
   function handleIsVengeanceLogs() {
@@ -98,6 +106,18 @@ export function AdminPanel() {
     setIsAddVengeance(false);
     setIsVengeanceLogs(true);
     setIsEditVideo(false);
+    setIsAddNewSong(false);
+  }
+
+  function handleAddNewSong() {
+    setIsAddNewVideo(false);
+    setIsDeleteVideo(false);
+    setIsLogs(false);
+    setIsVengeance(false);
+    setIsAddVengeance(false);
+    setIsVengeanceLogs(false);
+    setIsEditVideo(false);
+    setIsAddNewSong(true);
   }
 
   return (
@@ -144,6 +164,22 @@ export function AdminPanel() {
                             className="w-full"
                           >
                             Deletar História
+                          </Button>
+                        </NavigationMenuLink>
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger>Músicas</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[200px] grid-cols-1 gap-3 p-4 md:w-[300px]">
+                        <NavigationMenuLink>
+                          <Button
+                            onClick={handleAddNewSong}
+                            variant={"outline"}
+                            className="w-full"
+                          >
+                            Nova Música
                           </Button>
                         </NavigationMenuLink>
                       </ul>
@@ -210,6 +246,7 @@ export function AdminPanel() {
           {isAddVengeance && <FormAddNewNameToVengeance />}
           {isVengeanceLogs && <EnemiesLogs />}
           {isEditVideo && <FormEditVideo />}
+          {isAddNewSong && <FormAddNewSong />}
         </>
       )}
     </div>

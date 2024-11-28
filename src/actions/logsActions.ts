@@ -24,6 +24,12 @@ const logsVengeanceSchema = z.object({
   date: z.string(),
 });
 
+const logsSongSchema = z.object({
+  title: z.string(),
+  action: z.string(),
+  date: z.string(),
+});
+
 export async function getVengeanceLogs(): Promise<
   z.infer<typeof logsVengeanceSchema>[]
 > {
@@ -63,3 +69,12 @@ export async function addVideoLog(input: z.infer<typeof logsVideoSchema>) {
   });
   return log;
 }
+
+/* export async function addSongLog(input: z.infer<typeof logsSongSchema>) {
+  const log = await prisma.logsSong.create({
+    data: input,
+  });
+  return log;
+}
+
+ */
