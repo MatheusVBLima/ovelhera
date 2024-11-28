@@ -40,6 +40,7 @@ export function Homepage() {
             <Badge variant="rasta">Branco</Badge>
             <Badge variant="rasta">Múmia triste</Badge>
             <Badge variant="rasta">Dono da bola</Badge>
+            <Badge variant="rasta">Noiado</Badge>  
           </div>
         </div>
       </div>
