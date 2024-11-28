@@ -92,7 +92,7 @@ export function FormLogs() {
                   </TableCell>
                   <TableCell>{log.date}</TableCell>
                 </TableRow>
-              ))}
+              )).toReversed()}
             </TableBody>
           </Table>
           <Pagination>
