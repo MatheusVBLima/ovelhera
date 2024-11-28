@@ -1,5 +1,5 @@
 "use client";
-import { DoorClosed, Home, Shield, Skull, Speech } from "lucide-react";
+import { DoorClosed, Home, Music, Shield, Skull, Speech } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
@@ -37,6 +37,17 @@ export function WebNav() {
         <Link href={"/historias"} className="flex items-center gap-2">
           <span>HISTÓRIAS</span>
           <Speech size={18} />
+        </Link>
+      </Button>
+
+      <Button
+        className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+        asChild
+        variant={"outline"}
+      >
+        <Link href={"/musicas"} className="flex items-center gap-2">
+          <span>MÚSICAS</span>
+          <Music size={18} />
         </Link>
       </Button>
 

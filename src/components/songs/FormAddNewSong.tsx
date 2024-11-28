@@ -73,7 +73,7 @@ export function FormAddNewSong() {
   return (
     <div className="space-y-8">
       <h1 className="mt-16 text-center font-mono text-2xl font-bold">
-        Formulário para enviar histórias
+        Formulário para enviar músicas
       </h1>
       <Form {...form}>
         <form
@@ -85,12 +85,12 @@ export function FormAddNewSong() {
             name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Título do vídeo</FormLabel>
+                <FormLabel>Título da música</FormLabel>
                 <FormControl>
                   <Input placeholder="Ex. Ovelha leva gank..." {...field} />
                 </FormControl>
                 <FormDescription>
-                  Vai ser o nome do vídeo que todos irão ver no site
+                  Vai ser o nome da música que todos irão ver no site
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -101,7 +101,7 @@ export function FormAddNewSong() {
             name="url"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>URL do vídeo</FormLabel>
+                <FormLabel>URL da música</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Ex. https://www.youtube.com/watch?..."
@@ -109,7 +109,7 @@ export function FormAddNewSong() {
                   />
                 </FormControl>
                 <FormDescription>
-                  Basta copiar e colar o link do vídeo que você deseja adicionar
+                  Basta copiar e colar o link da música que você deseja adicionar
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -120,7 +120,7 @@ export function FormAddNewSong() {
             variant={"outline"}
             className="flex items-center gap-2 border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
           >
-            <span>Adicionar Vídeo</span>
+            <span>Adicionar Música</span>
             <FileVideo size={18} />
           </Button>
         </form>
