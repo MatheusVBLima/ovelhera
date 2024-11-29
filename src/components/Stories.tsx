@@ -169,7 +169,7 @@ export function Stories() {
       {filteredData.length === 0 ? (
         <div className="flex items-center justify-center mt-14">
           <p className="text-center text-2xl text-muted-foreground font-bold ">
-            Nenhuma história encontrada com essa tag.
+            Nenhuma história encontrada.
           </p>
         </div>
       ) : (
