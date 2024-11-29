@@ -153,19 +153,13 @@ export function Stories() {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem asChild>
-              <a
-                href="/MISSÃO HD FRIO BY OBA PT 1 (OPERAÇAO BIBLIOTECA DE ALEXANDRIA.torrent"
-                download
-              >
-                Missão HD - Parte 1
+              <a href="/acervo-esgoto-pt1.torrent" download>
+                Acervo - Parte 1
               </a>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <a
-                href="/MISSÃO HD FRIO BY OBA PT 2 (OPERAÇAO BIBLIOTECA DE ALEXANDRIA.torrent"
-                download
-              >
-                Missão HD - Parte 2
+              <a href="/acervo-esgoto-pt2.torrent" download>
+                Acervo - Parte 2
               </a>
             </DropdownMenuItem>
           </DropdownMenuContent>
