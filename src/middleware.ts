@@ -5,14 +5,15 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get('__Secure-next-auth.session-token')
   const pathname = request.nextUrl.pathname
 
-  if (
-    pathname.includes('/admin') ||
-    (pathname.includes('/melhores-do-ano') && !token)
-  ) {
+  if (pathname.includes('/admin') && !token) {
     return NextResponse.redirect(new URL(getUrl('/')))
+  }
+
+  if (pathname.includes('/melhores-do-ano') && !token) {
+    return NextResponse.redirect(new URL(getUrl('/login')))
   }
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!api|_next/static|_n ext/image|favicon.ico).*)'],
 }
