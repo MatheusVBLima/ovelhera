@@ -2,7 +2,6 @@
 import {
   DoorClosed,
   Gamepad,
-  Home,
   Music,
   Shield,
   Skull,
@@ -23,8 +22,8 @@ export function WebNav() {
 
   const { data: session } = useSession()
   return (
-    <nav className="hidden items-center gap-6 xl:flex">
-      <Button
+    <nav className="hidden items-center gap-4 xl:flex">
+      {/*  <Button
         className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
         asChild
         variant={'outline'}
@@ -33,7 +32,7 @@ export function WebNav() {
           <span>HOME</span>
           <Home size={18} />
         </Link>
-      </Button>
+      </Button> */}
 
       <Button
         className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
