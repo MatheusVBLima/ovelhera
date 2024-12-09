@@ -120,3 +120,11 @@ model LogsSong {
 
   @@map("logssong")
 }
+
+model Vote {
+  id        String   @id @default(cuid())
+  userId    String
+  category  String
+  option    String
+  createdAt DateTime @default(now())
+}
