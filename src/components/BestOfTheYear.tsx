@@ -1,5 +1,6 @@
 'use client'
 import { addVote, getUserVotes } from '@/actions/votesActions'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -63,6 +64,9 @@ export function BestOfTheYear() {
   const isAdmin =
     session?.user?.name &&
     admins.some(admin => admin.name === session.user?.name)
+
+  const user = session?.user?.name
+  const image = session?.user?.image || ''
 
   useEffect(() => {
     async function loadUserVotes() {
@@ -136,13 +140,24 @@ export function BestOfTheYear() {
 
   return (
     <div className="container mt-8 space-y-8">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Melhores do Ano</h1>
-        {isAdmin && (
-          <Button onClick={() => setShowResults(!showResults)}>
-            {showResults ? 'Voltar para Votação' : 'Ver Resultados'}
-          </Button>
+      <div className="flex flex-col gap-4">
+        {user && (
+          <div className="flex items-center gap-2">
+            <Avatar className="h-12 w-12">
+              <AvatarImage src={image} alt="Avatar" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+            <p className="text-lg text-white">Olá, {user}</p>
+          </div>
         )}
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-bold">Melhores do Ano</h1>
+          {isAdmin && (
+            <Button onClick={() => setShowResults(!showResults)}>
+              {showResults ? 'Voltar para Votação' : 'Ver Resultados'}
+            </Button>
+          )}
+        </div>
       </div>
 
       {showResults && isAdmin ? (
