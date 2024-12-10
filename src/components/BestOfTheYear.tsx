@@ -222,16 +222,6 @@ export function BestOfTheYear() {
     }
   }
 
-  if (!session) {
-    return (
-      <div className="container mt-8 flex flex-col items-center gap-4">
-        <h1 className="text-2xl font-bold">Melhores do Ano</h1>
-        <p>Faça login para votar</p>
-        <Button onClick={() => signIn('discord')}>Login com Discord</Button>
-      </div>
-    )
-  }
-
   return (
     <div className="container mt-8 space-y-8">
       <div className="flex flex-col gap-4">
