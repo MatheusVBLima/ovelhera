@@ -227,7 +227,7 @@ export function BestOfTheYear() {
       <div className="flex flex-col gap-4">
         {user && (
           <div className="flex items-center gap-2">
-            <Avatar className="h-12 w-12">
+            <Avatar className="h-8 w-8">
               <AvatarImage src={image} alt="Avatar" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
