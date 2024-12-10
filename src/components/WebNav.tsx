@@ -79,11 +79,11 @@ export function WebNav() {
       </Button>
 
       <Button
-        asChild
         variant={'outline'}
+        disabled={true}
         className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
       >
-        <Link href="/melhores-do-ano" className="flex items-center gap-2">
+        <Link href="/awards" className="flex items-center gap-2">
           <span>MELHORES DO ANO</span>
           <Trophy size={18} />
         </Link>

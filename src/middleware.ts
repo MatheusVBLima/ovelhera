@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(getUrl('/')))
   }
 
-  if (pathname.includes('/melhores-do-ano') && !token) {
+  if (pathname.includes('/awards') && !token) {
     return NextResponse.redirect(new URL(getUrl('/login')))
   }
 }

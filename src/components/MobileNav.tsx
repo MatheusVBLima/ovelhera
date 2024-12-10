@@ -95,7 +95,7 @@ export function MobileNav() {
               asChild
               variant={'outline'}
             >
-              <Link href="/melhores-do-ano" className="flex items-center gap-2">
+              <Link href="/awards" className="flex items-center gap-2">
                 <span>MELHORES DO ANO</span>
               </Link>
             </Button>
