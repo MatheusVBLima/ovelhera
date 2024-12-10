@@ -231,7 +231,7 @@ export function BestOfTheYear() {
               <AvatarImage src={image} alt="Avatar" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-            <p className="text-lg text-white">Olá, {user}</p>
+            <p className="text-lg">Olá, {user}</p>
           </div>
         )}
         <div className="flex items-center justify-between">
