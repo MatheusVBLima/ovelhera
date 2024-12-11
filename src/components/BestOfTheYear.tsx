@@ -13,7 +13,6 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { useToast } from '@/components/ui/use-toast'
 import { categories } from '@/data/categories'
 import { signIn, useSession } from 'next-auth/react'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import admins from '../../admins.json'
 import { VoteResults } from './VoteResults'
@@ -116,9 +115,6 @@ export function BestOfTheYear() {
               A votação será aberta no dia 14/12/2024
             </p>
           </div>
-          <Link href="/awards">
-            <Button>Ver Resultados</Button>
-          </Link>
 
           {isAdmin && (
             <Button onClick={() => setShowResults(!showResults)}>
