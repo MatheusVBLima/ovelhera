@@ -155,4 +155,9 @@ export const categories: Record<string, Category> = {
     description: 'Qual foi a melhor foto do ano?',
     options: ['AAAA', 'BBBB', 'CCCC', 'DDDD'],
   },
+  melhorEsculacho: {
+    title: 'Melhor Esculacho',
+    description: 'Qual foi o melhor esculacho do ano?',
+    options: ['AAAA', 'BBBB', 'CCCC', 'DDDD'],
+  },
 }
