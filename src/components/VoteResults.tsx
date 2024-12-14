@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { categories } from '@/data/categories'
 import { useEffect, useState } from 'react'
 
 type VoteCount = {
@@ -23,10 +24,10 @@ export function VoteResults() {
 
   useEffect(() => {
     async function loadResults() {
-      const categories = ['melhorHistoria', 'melhorMusica', 'melhorMomento']
+      const categoryIds = Object.keys(categories)
       const allResults: CategoryResults = {}
 
-      for (const category of categories) {
+      for (const category of categoryIds) {
         const votes = await getVotesByCategory(category)
         const voteCounts: { [key: string]: number } = {}
 
@@ -53,13 +54,7 @@ export function VoteResults() {
       {Object.entries(results).map(([category, votes]) => (
         <Card key={category}>
           <CardHeader>
-            <CardTitle>
-              {category === 'melhorHistoria'
-                ? 'Melhor História'
-                : category === 'melhorMusica'
-                  ? 'Melhor Música'
-                  : 'Melhor Momento'}
-            </CardTitle>
+            <CardTitle>{categories[category]?.title || category}</CardTitle>
             <CardDescription>Resultados parciais</CardDescription>
           </CardHeader>
           <CardContent>
