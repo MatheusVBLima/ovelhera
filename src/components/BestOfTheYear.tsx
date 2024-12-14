@@ -142,7 +142,7 @@ export function BestOfTheYear() {
                 <RadioGroup
                   disabled={!!userVotes[categoryId]}
                   value={userVotes[categoryId]}
-                  onValueChange={value => handleVote(categoryId, value)}
+                  /* onValueChange={value => handleVote(categoryId, value)} */
                 >
                   {category.options.map(option => (
                     <div key={option} className="flex items-center space-x-2">
