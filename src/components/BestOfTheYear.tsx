@@ -31,7 +31,11 @@ export function BestOfTheYear() {
   const [showResults, setShowResults] = useState(false)
   const isAdmin =
     session?.user?.name &&
-    admins.some((admin: { name: string }) => admin.name === session.user?.name)
+    admins.some(admin => {
+      console.log('Checking admin:', admin.name)
+      console.log('Current user:', session.user?.name)
+      return admin.name === session.user?.name
+    })
 
   const user = session?.user?.name
   const image = session?.user?.image || ''
