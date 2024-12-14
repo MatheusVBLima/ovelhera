@@ -148,21 +148,21 @@ export const categories: Record<string, Category> = {
   melhorCamisa: {
     title: 'Melhor Camisa',
     description: 'Qual foi a melhor camisa do ano?',
-    options: ['Camisa da blasfemia', 'BBBB', 'CCCC', 'DDDD'],
+    options: ['Camisa da blasfemia', 'Camisa do jacomé', 'Camisa rasta roxa clássica'],
   },
   melhorFoto: {
     title: 'Melhor Foto',
     description: 'Qual foi a melhor foto do ano?',
-    options: ['AAAA', 'BBBB', 'CCCC', 'DDDD'],
+    options: ['Tentando beijar a Bruna', 'Iai pai', 'MPV mostrando a Msol', 'Crânio Rastafari'],
   },
   melhorEsculacho: {
     title: 'Melhor Esculacho',
     description: 'Qual foi o melhor esculacho do ano?',
-    options: ['AAAA', 'BBBB', 'CCCC', 'DDDD'],
+    options: ['O maior esculacho do ovelhera no CyberPunk', 'Esculacho no F1 2024', 'Esculacho de 15 minutos no Battlebit'],
   },
   melhoClipe: {
     title: 'Melhor Clipe',
     description: 'Qual foi o melhor clipe do ano?',
-    options: ['AAAA', 'BBBB', 'CCCC', 'DDDD'],
+    options: ['Iai Pai + Bongada', 'Tentando beijar a Bruna', 'Perdendo o BV', 'Esculacho da BGS'],
   },
 }
