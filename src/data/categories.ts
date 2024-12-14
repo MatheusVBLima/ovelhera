@@ -71,7 +71,7 @@ export const categories: Record<string, Category> = {
       'Retorno de veggano',
       'Live do rainhu',
       'MVP',
-      'Todas foram ruins',
+      'Live do jogo da pedra',
     ],
   },
   melhorSheik: {
@@ -148,21 +148,50 @@ export const categories: Record<string, Category> = {
   melhorCamisa: {
     title: 'Melhor Camisa',
     description: 'Qual foi a melhor camisa do ano?',
-    options: ['Camisa da blasfemia', 'Camisa do jacomé', 'Camisa rasta roxa clássica'],
+    options: [
+      'Camisa da blasfemia',
+      'Camisa do jacomé',
+      'Camisa rasta roxa clássica',
+    ],
   },
   melhorFoto: {
     title: 'Melhor Foto',
     description: 'Qual foi a melhor foto do ano?',
-    options: ['Tentando beijar a Bruna', 'Iai pai', 'MPV mostrando a Msol', 'Crânio Rastafari'],
+    options: [
+      'Tentando beijar a Bruna',
+      'Iai pai',
+      'MPV mostrando a Msol',
+      'Crânio Rastafari',
+    ],
   },
   melhorEsculacho: {
     title: 'Melhor Esculacho',
     description: 'Qual foi o melhor esculacho do ano?',
-    options: ['O maior esculacho do ovelhera no CyberPunk', 'Esculacho no F1 2024', 'Esculacho de 15 minutos no Battlebit'],
+    options: [
+      'O maior esculacho do ovelhera no CyberPunk',
+      'Esculacho no F1 2024',
+      'Esculacho de 15 minutos no Battlebit',
+      'Esse cara é virgem, é? - Toguro',
+    ],
   },
   melhoClipe: {
     title: 'Melhor Clipe',
     description: 'Qual foi o melhor clipe do ano?',
-    options: ['Iai Pai + Bongada', 'Tentando beijar a Bruna', 'Perdendo o BV', 'Esculacho da BGS'],
+    options: [
+      'Iai Pai + Bongada',
+      'Tentando beijar a Bruna',
+      'Perdendo o BV',
+      'Esculacho da BGS',
+    ],
+  },
+  melhoMusica: {
+    title: 'Melhor Música',
+    description: 'Qual foi a melhor música do ano?',
+    options: [
+      'Ritmanso - Carros Rebaixados',
+      'Medley - BABYKENAN',
+      'Manson Manson - Rasta Records',
+      'Pora Aberta - Charlieofofo',
+    ],
   },
 }
