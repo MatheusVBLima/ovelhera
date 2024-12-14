@@ -26,11 +26,11 @@ export const categories: Record<string, Category> = {
     ],
   },
   melhorHistoria: {
-    title: 'Historia do Ano',
-    description: 'Qual melhor historia?',
+    title: 'História do Ano',
+    description: 'Qual melhor história?',
     options: [
       'A da Boneca',
-      'a da CCTV',
+      'A da CCTV',
       'A da Buceta Lanterna',
       'Punheta diarreia',
     ],
@@ -112,7 +112,7 @@ export const categories: Record<string, Category> = {
   melhorOperacao: {
     title: 'Operação do ano',
     description: 'Qual foi a melhor operação do ano?',
-    options: ['OBM', 'Porco no espeto', 'Show de truman'],
+    options: ['OBM', 'Porco no espeto', 'Show de Truman'],
   },
   melhorAcontecimento: {
     title: 'Acontecimento em live do ano',
@@ -149,7 +149,7 @@ export const categories: Record<string, Category> = {
     title: 'Melhor Camisa',
     description: 'Qual foi a melhor camisa do ano?',
     options: [
-      'Camisa da blasfemia',
+      'Camisa da blasfêmia',
       'Camisa do jacomé',
       'Camisa rasta roxa clássica',
     ],
@@ -160,7 +160,7 @@ export const categories: Record<string, Category> = {
     options: [
       'Tentando beijar a Bruna',
       'Iai pai',
-      'MPV mostrando a Msol',
+      'MVP mostrando a Msol',
       'Crânio Rastafari',
     ],
   },
