@@ -1,5 +1,5 @@
-import DiscordProvider from "next-auth/providers/discord";
-import { NextAuthOptions } from "next-auth";
+import type { NextAuthOptions } from 'next-auth'
+import DiscordProvider from 'next-auth/providers/discord'
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -8,4 +8,4 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.DISCORD_CLIENT_SECRET as string,
     }),
   ],
-};
+}
