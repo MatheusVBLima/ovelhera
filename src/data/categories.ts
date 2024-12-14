@@ -191,7 +191,7 @@ export const categories: Record<string, Category> = {
       'Ritmanso - Carros Rebaixados',
       'Medley - BABYKENAN',
       'Manson Manson - Rasta Records',
-      'Pora Aberta - Charlieofofo',
+      'Porta Aberta - Charlieofofo',
     ],
   },
 }
