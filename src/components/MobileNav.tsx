@@ -1,8 +1,8 @@
 'use client'
+import { admins } from '@/lib/admins'
 import { Menu } from 'lucide-react'
 import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
-import { admins } from '../../admins'
 import { ThemeSwitcher } from './ThemeSwitcher'
 import { Button } from './ui/button'
 import {

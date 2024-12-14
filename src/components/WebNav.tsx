@@ -11,7 +11,7 @@ import {
 import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 
-import { admins } from '../../admins'
+import { admins } from '@/lib/admins'
 import { ThemeSwitcher } from './ThemeSwitcher'
 import { Button } from './ui/button'
 

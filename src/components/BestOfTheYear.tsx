@@ -12,9 +12,9 @@ import {
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { useToast } from '@/components/ui/use-toast'
 import { categories } from '@/data/categories'
+import { admins } from '@/lib/admins'
 import { signIn, useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
-import { admins } from '../../admins'
 import { VoteResults } from './VoteResults'
 
 type Vote = {
