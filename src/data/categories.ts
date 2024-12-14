@@ -148,7 +148,7 @@ export const categories: Record<string, Category> = {
   melhorCamisa: {
     title: 'Melhor Camisa',
     description: 'Qual foi a melhor camisa do ano?',
-    options: ['AAAA', 'BBBB', 'CCCC', 'DDDD'],
+    options: ['Camisa da blasfemia', 'BBBB', 'CCCC', 'DDDD'],
   },
   melhorFoto: {
     title: 'Melhor Foto',
@@ -158,6 +158,11 @@ export const categories: Record<string, Category> = {
   melhorEsculacho: {
     title: 'Melhor Esculacho',
     description: 'Qual foi o melhor esculacho do ano?',
+    options: ['AAAA', 'BBBB', 'CCCC', 'DDDD'],
+  },
+  melhoClipe: {
+    title: 'Melhor Clipe',
+    description: 'Qual foi o melhor clipe do ano?',
     options: ['AAAA', 'BBBB', 'CCCC', 'DDDD'],
   },
 }
