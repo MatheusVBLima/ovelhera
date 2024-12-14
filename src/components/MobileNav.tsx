@@ -2,7 +2,7 @@
 import { Menu } from 'lucide-react'
 import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
-import admins from '../../admins.json'
+import { admins } from '../../admins'
 import { ThemeSwitcher } from './ThemeSwitcher'
 import { Button } from './ui/button'
 import {
@@ -115,7 +115,9 @@ export function MobileNav() {
 
           {session && (
             <>
-              {admins.some(admin => admin.name === session?.user?.name) && (
+              {admins.some(
+                (admin: { name: string }) => admin.name === session?.user?.name
+              ) && (
                 <DropdownMenuItem>
                   <Button
                     className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500 w-full"

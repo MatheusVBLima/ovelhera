@@ -38,7 +38,7 @@ next-env.d.ts
 
 .vercel
 
-admins.json
+admins.ts
 .VSCodeCounter
 .env
 

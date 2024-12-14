@@ -14,7 +14,7 @@ import { useToast } from '@/components/ui/use-toast'
 import { categories } from '@/data/categories'
 import { signIn, useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
-import admins from '../../admins.json'
+import { admins } from '../../admins'
 import { VoteResults } from './VoteResults'
 
 type Vote = {
@@ -31,7 +31,7 @@ export function BestOfTheYear() {
   const [showResults, setShowResults] = useState(false)
   const isAdmin =
     session?.user?.name &&
-    admins.some(admin => admin.name === session.user?.name)
+    admins.some((admin: { name: string }) => admin.name === session.user?.name)
 
   const user = session?.user?.name
   const image = session?.user?.image || ''

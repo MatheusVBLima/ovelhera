@@ -11,7 +11,7 @@ import {
 import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 
-import admins from '../../admins.json'
+import { admins } from '../../admins'
 import { ThemeSwitcher } from './ThemeSwitcher'
 import { Button } from './ui/button'
 
@@ -102,7 +102,9 @@ export function WebNav() {
       )}
       {session && (
         <>
-          {admins.some(admin => admin.name === session?.user?.name) && (
+          {admins.some(
+            (admin: { name: string }) => admin.name === session?.user?.name
+          ) && (
             <Button
               className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
               variant={'outline'}
