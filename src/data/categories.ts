@@ -189,7 +189,7 @@ export const categories: Record<string, Category> = {
     description: 'Qual foi a melhor música do ano?',
     options: [
       'Ritmanso - Carros Rebaixados',
-      'Medley - BABYKENAN',
+      'Medley Rastafari - BABYKENAN',
       'Manson Manson - Rasta Records',
       'Porta Aberta - Charlieofofo',
     ],
