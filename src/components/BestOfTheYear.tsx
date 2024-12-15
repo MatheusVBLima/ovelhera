@@ -115,8 +115,11 @@ export function BestOfTheYear() {
         <div className="flex items-center justify-between">
           <div className="flex flex-col items-start gap-2">
             <h1 className="text-2xl font-bold">Melhores do Ano</h1>
-            <p className="text-lg text-primary">
-              A votação será aberta no dia 14/12/2024
+            <p className="text-lg text-muted-foreground">
+              VÃO VOTANDO, VÃO VOTANDO, VÃO VOTANDO, VÃO VOTANDO, VÃO VOTANDO
+            </p>
+            <p className="text-lg text-muted-foreground">
+              VOTEM, DESGRAÇADOS! VOTEM, PUTAS!
             </p>
           </div>
 
@@ -142,7 +145,7 @@ export function BestOfTheYear() {
                 <RadioGroup
                   disabled={!!userVotes[categoryId]}
                   value={userVotes[categoryId]}
-                  /* onValueChange={value => handleVote(categoryId, value)} */
+                  onValueChange={value => handleVote(categoryId, value)}
                 >
                   {category.options.map(option => (
                     <div key={option} className="flex items-center space-x-2">
