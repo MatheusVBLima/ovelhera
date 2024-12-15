@@ -158,7 +158,7 @@ export const categories: Record<string, Category> = {
     title: 'Melhor Foto',
     description: 'Qual foi a melhor foto do ano?',
     options: [
-      'Tentando beijar a Bruna',
+      'Tentando beijar a Carol',
       'Iai pai',
       'MVP mostrando a Msol',
       'Crânio Rastafari',
