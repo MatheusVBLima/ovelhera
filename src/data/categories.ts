@@ -179,7 +179,7 @@ export const categories: Record<string, Category> = {
     description: 'Qual foi o melhor clipe do ano?',
     options: [
       'Iai Pai + Bongada',
-      'Tentando beijar a Bruna',
+      'Tentando beijar a Carol',
       'Perdendo o BV',
       'Esculacho da BGS',
     ],
