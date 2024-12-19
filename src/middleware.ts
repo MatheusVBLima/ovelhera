@@ -8,10 +8,6 @@ export function middleware(request: NextRequest) {
   if (pathname.includes('/admin') && !token) {
     return NextResponse.redirect(new URL(getUrl('/')))
   }
-
-  if (pathname.includes('/awards') && !token) {
-    return NextResponse.redirect(new URL(getUrl('/login')))
-  }
 }
 
 export const config = {
