@@ -32,8 +32,8 @@ export default function RastaAwardsResults() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <Card className="w-full max-w-md bg-white/90 backdrop-blur-sm">
+    <div className="h-[calc(100vh-7.75rem)] flex items-center justify-center">
+      <Card className="w-full max-w-md backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-center text-green-800">
             Rasta Awards 2024
