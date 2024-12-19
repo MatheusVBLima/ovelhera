@@ -33,7 +33,7 @@ export default function RastaAwardsResults() {
 
   return (
     <div className="h-[calc(100vh-7.75rem)] flex items-center justify-center">
-      <Card className="w-full max-w-md backdrop-blur-sm">
+      <Card className="w-full max-w-md bg-secondary/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-center text-green-800">
             Rasta Awards 2024
