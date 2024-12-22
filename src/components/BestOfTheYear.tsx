@@ -24,7 +24,7 @@ type Vote = {
   option: string
 }
 
-export function BestOfTheYear() {
+export default function BestOfTheYear() {
   const { data: session } = useSession()
   const { toast } = useToast()
   const [userVotes, setUserVotes] = useState<Record<string, string>>({})
