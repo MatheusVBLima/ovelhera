@@ -1,5 +1,6 @@
 'use client'
 import {
+  Angry,
   DoorClosed,
   Gamepad,
   Music,
@@ -23,21 +24,11 @@ export function WebNav() {
   const { data: session } = useSession()
   return (
     <nav className="hidden items-center gap-4 xl:flex">
-      {/*  <Button
-        className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
-        asChild
-        variant={'outline'}
-      >
-        <Link href={'/'} className="flex items-center gap-2">
-          <span>HOME</span>
-          <Home size={18} />
-        </Link>
-      </Button> */}
-
       <Button
         className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
         asChild
         variant={'outline'}
+        size={'sm'}
       >
         <Link href={'/historias'} className="flex items-center gap-2">
           <span>HISTÓRIAS</span>
@@ -49,6 +40,7 @@ export function WebNav() {
         className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
         asChild
         variant={'outline'}
+        size={'sm'}
       >
         <Link href={'/musicas'} className="flex items-center gap-2">
           <span>MÚSICAS</span>
@@ -60,6 +52,19 @@ export function WebNav() {
         className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
         asChild
         variant={'outline'}
+        size={'sm'}
+      >
+        <Link href={'/esculachos'} className="flex items-center gap-2">
+          <span>ESCULACHOS</span>
+          <Angry size={18} />
+        </Link>
+      </Button>
+
+      <Button
+        className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+        asChild
+        variant={'outline'}
+        size={'sm'}
       >
         <Link href={'/inimigos'} className="flex items-center gap-2">
           <span>INIMIGOS</span>
@@ -71,6 +76,7 @@ export function WebNav() {
         className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
         asChild
         variant={'outline'}
+        size={'sm'}
       >
         <Link href={'/ovelhera-dle'} className="flex items-center gap-2">
           <span>OVELHERA DLE</span>
@@ -82,9 +88,10 @@ export function WebNav() {
         asChild
         variant={'outline'}
         className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+        size={'sm'}
       >
         <Link href="/awards" className="flex items-center gap-2">
-          <span>MELHORES DO ANO</span>
+          <span>AWARDS</span>
           <Trophy size={18} />
         </Link>
       </Button>
@@ -93,6 +100,7 @@ export function WebNav() {
         <Button
           className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
           variant={'outline'}
+          size={'sm'}
         >
           <Link href="/admin" className="flex items-center gap-2">
             <span>ADMIN</span>
@@ -108,6 +116,7 @@ export function WebNav() {
             <Button
               className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
               variant={'outline'}
+              size={'sm'}
             >
               <Link href="admin" className="flex items-center gap-2">
                 <span>ADMIN</span>
@@ -119,6 +128,7 @@ export function WebNav() {
             onClick={handleSignOut}
             variant={'outline'}
             className="flex items-center gap-2 border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500"
+            size={'sm'}
           >
             <span>SIGN OUT</span>
             <DoorClosed size={18} />

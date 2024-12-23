@@ -66,6 +66,17 @@ export function MobileNav() {
               </Link>
             </Button>
           </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Button
+              className="border-b-red-500 border-l-yellow-500 border-r-yellow-500 border-t-green-500 w-full"
+              asChild
+              variant={'outline'}
+            >
+              <Link href={'/esculachos'} className="flex items-center gap-2">
+                <span>ESCULACHOS</span>
+              </Link>
+            </Button>
+          </DropdownMenuItem>
 
           <DropdownMenuItem>
             <Button
@@ -96,7 +107,7 @@ export function MobileNav() {
               variant={'outline'}
             >
               <Link href="/awards" className="flex items-center gap-2">
-                <span>MELHORES DO ANO</span>
+                <span>AWARDS</span>
               </Link>
             </Button>
           </DropdownMenuItem>
