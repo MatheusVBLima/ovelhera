@@ -6,7 +6,7 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
   if (pathname.includes('/admin') && !token) {
-    return NextResponse.redirect(new URL(getUrl('/')))
+    return NextResponse.redirect(new URL(getUrl('/login')))
   }
 }
 
