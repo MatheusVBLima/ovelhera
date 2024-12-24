@@ -7,8 +7,11 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import type { ChartConfig } from '@/components/ui/chart'
-import { ChartContainer, ChartTooltip } from '@/components/ui/chart'
+import {
+  type ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+} from '@/components/ui/chart'
 import type { CategoryResult } from '@/data/results'
 import { TrendingUp } from 'lucide-react'
 import { Bar, BarChart, XAxis, YAxis } from 'recharts'
@@ -41,56 +44,84 @@ export function Result({ data }: ResultProps) {
     .join(' e ')
 
   return (
-    <Card className="bg-background/50">
+    <Card
+      className={`bg-background/50 ${
+        data.title === 'Viewer do ano'
+          ? 'bg-[url(/temperox.jpg)] bg-cover bg-center text-white font-bold'
+          : ''
+      }`}
+    >
       <CardHeader className="pb-2">
         <CardTitle className="text-xl font-medium">{data.title}</CardTitle>
-        <CardDescription className=" text-muted-foreground">
+        <CardDescription
+          className={`${
+            data.title === 'Viewer do ano'
+              ? 'text-white'
+              : 'text-muted-foreground'
+          }`}
+        >
           {data.description}
         </CardDescription>
       </CardHeader>
       <CardContent className="pb-2">
-        <ChartContainer config={chartConfig}>
-          <BarChart data={chartData} layout="vertical" margin={{}} height={200}>
-            <XAxis type="number" hide />
-            <YAxis
-              dataKey="option"
-              type="category"
-              tickLine={false}
-              tickMargin={10}
-              axisLine={false}
-              fontSize={12}
-              width={120}
-              tick={{
-                fill: 'hsl(var(--muted-foreground))',
-                fontSize: 14,
-              }}
-            />
-            <ChartTooltip
-              cursor={false}
-              content={({ active, payload }) => {
-                if (!active || !payload?.length) return null
-                return (
-                  <div className="rounded-lg border bg-background p-2 shadow-sm">
-                    <div className="flex flex-col">
-                      <span className="text-[0.70rem] uppercase text-muted-foreground">
-                        Votos
-                      </span>
-                      <span className="font-bold">{payload[0].value}</span>
+        {data.title !== 'Viewer do ano' ? (
+          <ChartContainer config={chartConfig}>
+            <BarChart
+              data={chartData}
+              layout="vertical"
+              margin={{}}
+              height={200}
+            >
+              <XAxis type="number" hide />
+              <YAxis
+                dataKey="option"
+                type="category"
+                tickLine={false}
+                tickMargin={10}
+                axisLine={false}
+                fontSize={12}
+                width={120}
+                tick={{
+                  fill: data.title === 'Viewer do ano' ? 'white' : 'white',
+                  fontSize: 14,
+                }}
+              />
+              <ChartTooltip
+                cursor={false}
+                content={({ active, payload }) => {
+                  if (!active || !payload?.length) return null
+                  return (
+                    <div className="rounded-lg border bg-background p-2 shadow-sm">
+                      <div className="flex flex-col">
+                        <span className="text-[0.70rem] uppercase text-muted-foreground">
+                          Votos
+                        </span>
+                        <span className="font-bold">{payload[0].value}</span>
+                      </div>
                     </div>
-                  </div>
-                )
-              }}
-            />
-            <Bar
-              dataKey="votes"
-              fill="hsl(156.2 71.6% 66.9%)"
-              radius={5}
-              barSize={30}
-            />
-          </BarChart>
-        </ChartContainer>
+                  )
+                }}
+              />
+              <Bar
+                dataKey="votes"
+                fill={
+                  data.title === 'Viewer do ano'
+                    ? 'hsl(240 5.9% 10%)'
+                    : 'hsl(156.2 71.6% 66.9%)'
+                }
+                radius={5}
+                barSize={30}
+              />
+            </BarChart>
+          </ChartContainer>
+        ) : null}
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 pt-2 text-xs">
+
+      <CardFooter
+        className={`flex-col items-start gap-2 pt-2 text-xs ${
+          data.title === 'Viewer do ano' ? 'text-white' : ''
+        }`}
+      >
         <div className="flex items-center gap-2 font-medium">
           {hasDrawn ? (
             <>
@@ -104,7 +135,13 @@ export function Result({ data }: ResultProps) {
             </>
           )}
         </div>
-        <div className="text-muted-foreground">
+        <div
+          className={`flex-col items-start gap-2 pt-2 text-xs ${
+            data.title === 'Viewer do ano'
+              ? 'text-white'
+              : 'text-muted-foreground'
+          }`}
+        >
           Total de {totalVotes} votos nesta categoria
         </div>
       </CardFooter>
